@@ -6,7 +6,7 @@
 namespace editor::crypto
 {
     int encrypt(std::string filePath, std::vector<uint8_t>& src) {
-        return 0;
+        return -1;
     }
 
     int decrypt(std::string filePath, std::vector<uint8_t>& dest) {

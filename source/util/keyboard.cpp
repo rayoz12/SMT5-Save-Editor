@@ -6,8 +6,7 @@
 
 unsigned long maxValue = 0;
 
-bool is_number(const std::string& s)
-{
+bool is_number(const std::string& s) {
     std::string::const_iterator it = s.begin();
     while (it != s.end() && std::isdigit(*it)) ++it;
     return !s.empty() && it == s.end();
@@ -25,7 +24,7 @@ SwkbdTextCheckResult validate_name(char* tmp_string, size_t tmp_string_size) {
 
 SwkbdTextCheckResult validate_number(char* tmp_string, size_t tmp_string_size) {
     std::string string(tmp_string);
-    
+    printf("Validating Name: %s\n", string.c_str());
     if (!is_number(string)) {
         strncpy(tmp_string, "Only Numbers are allowed!", 64);
         return SwkbdTextCheckResult_Bad;
@@ -57,6 +56,7 @@ namespace editor::util::keyboard
             return currentValue;
         }
         swkbdConfigSetInitialText(&kbd, currentValue.AsUTF8().c_str());
+        swkbdConfigSetStringLenMax(&kbd, 8);
 
         std::string headerStr("Enter a name");
 
@@ -76,7 +76,7 @@ namespace editor::util::keyboard
 
     uint64_t Keyboard::inputNumber(uint64_t currentValue, uint64_t maxValueIn) {
         SwkbdConfig kbd;
-        char tmpoutstr[64] = {0};
+        char tmpoutstr[500] = {0};
 
         Result rc = makeKeyboard(kbd);
         if (R_FAILED(rc)) {
@@ -88,7 +88,7 @@ namespace editor::util::keyboard
         std::string headerStr("Enter number between 0-" + std::to_string(maxValueIn));
 
         swkbdConfigSetHeaderText(&kbd, headerStr.c_str());
-        maxValue = maxValue;
+        maxValue = maxValueIn;
         swkbdConfigSetTextCheckCallback(&kbd, validate_number);
         
         rc = swkbdShow(&kbd, tmpoutstr, sizeof(tmpoutstr));
@@ -107,15 +107,15 @@ namespace editor::util::keyboard
     }
 
     uint16_t Keyboard::input2Bytes(uint16_t currentValue) {
-        return inputNumber(currentValue, std::numeric_limits<uint16_t>::max());
+        return inputNumber(currentValue, 65535);
     }
 
     uint32_t Keyboard::input4Bytes(uint32_t currentValue) {
-        return inputNumber(currentValue, std::numeric_limits<uint32_t>::max());
+        return inputNumber(currentValue, 4294967295);
     }
 
     uint64_t Keyboard::input8Bytes(uint64_t currentValue) {
-        return inputNumber(currentValue, std::numeric_limits<uint64_t>::max());
+        return inputNumber(currentValue, 0xffffffffffffffffUL);
     }
 
     Result Keyboard::makeKeyboard(SwkbdConfig& kbd) {
