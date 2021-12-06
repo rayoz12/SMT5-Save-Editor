@@ -33,7 +33,7 @@ namespace editor::ui {
         this->butText->SetColor(COLOR("#FFFFFFFF"));
         this->topRect = pu::ui::elm::Rectangle::New(0, 0, 1280, 94, COLOR("#0d005980"));
         this->botRect = pu::ui::elm::Rectangle::New(0, 659, 1280, 61, COLOR("#0d005980"));
-        SetBackgroundImage("romfs:/images/background2.png");
+        SetBackgroundImage("romfs:/images/background1.jpg");
 
 
         this->generalSectionText = pu::ui::elm::TextBlock::New(10, 50, "General");

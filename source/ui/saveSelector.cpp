@@ -52,7 +52,6 @@ namespace editor::ui {
             //std::cout << entry.path().filename() << std::endl;
             auto saveItem = pu::ui::elm::MenuItem::New(filename);
             saveItem->SetColor(COLOR("#FFFFFFFF"));
-            // saveItem->SetIcon("romfs:/images/icons/micro-sd.png");
             this->saveItems.push_back(filename);
             this->saveMenu->AddItem(saveItem);
             isEntryAdded = true;
@@ -81,8 +80,7 @@ namespace editor::ui {
                 globalState.savePath = std::string(editor::config::saveFolder + "/" + saveItems[idx]);
                 //std::cout << saveItems[idx] << std::endl;
                 //std::cout << globalState.savePath << std::endl;
-                mainApp->saveEditorGeneralLayout->initialiseFromSave();
-                mainApp->LoadLayout(mainApp->saveEditorGeneralLayout);
+                mainApp->loadSave();
             }
         }
     }

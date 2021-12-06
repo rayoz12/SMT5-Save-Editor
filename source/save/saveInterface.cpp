@@ -1,6 +1,8 @@
 #include "save/saveInterface.hpp"
 #include "util/state.hpp"
 
+#include "util/debug.hpp"
+
 #include <inttypes.h>
 
 namespace editor::save
@@ -8,7 +10,16 @@ namespace editor::save
     pu::String SaveInterface::getString(long offset, int size) {
         auto start = globalState.saveData.begin() + offset;
         auto end = start + size;
-        std::u16string str(start, end);
+        editor::debug::printBytes(offset, size);
+
+        std::vector<char16_t> array;
+
+        for (size_t i = offset; i < offset + size; i+=2) {
+            char16_t value = (((unsigned short)globalState.saveData[i]) << 0) | (((unsigned short)globalState.saveData[i+1]) << 8);
+            array.push_back(value);
+        }
+        
+        std::u16string str(std::begin(array), std::end(array));
         return pu::String(str);
     }
 
@@ -16,32 +27,33 @@ namespace editor::save
         return globalState.saveData[offset];
     }
 
-    // All bytes in the save file are big endian.
+    // All bytes in the save file are little endian.
 
     uint16_t SaveInterface::get2Bytes(long offset) {
-        uint16_t result = globalState.saveData[offset + 1];
-        result |= globalState.saveData[offset + 0]<<8;
+        uint16_t result = globalState.saveData[offset];
+        result |= globalState.saveData[offset + 1] << 8;
         return result;
     }
 
     uint32_t SaveInterface::get4Bytes(long offset) {
-        //uint32_t result = (int)globalState.saveData[3] | (int)globalState.saveData[2]<<8 | (int)globalState.saveData[1]<<16 | (int)globalState.saveData[0]<<24;
-        uint32_t result = globalState.saveData[offset + 3];
-        result |= globalState.saveData[offset + 2] << 8;
-        result |= globalState.saveData[offset + 1] << 16;
-        result |= globalState.saveData[offset + 0] << 24;
+
+        uint32_t result = globalState.saveData[offset];
+        result |= globalState.saveData[offset + 1] << 8;
+        result |= globalState.saveData[offset + 2] << 16;
+        result |= globalState.saveData[offset + 3] << 24;
         return result;
     }
 
     uint64_t SaveInterface::get8Bytes(long offset) {
-        uint64_t result = globalState.saveData[offset + 7];
-        result |= globalState.saveData[offset + 6] << 8;
-        result |= globalState.saveData[offset + 5] << 16;
-        result |= globalState.saveData[offset + 4] << 24;
-        result |= globalState.saveData[offset + 3] << 32;
-        result |= globalState.saveData[offset + 2] << 40;
-        result |= globalState.saveData[offset + 1] << 48;
-        result |= globalState.saveData[offset + 0] << 56;
+
+        uint64_t result = globalState.saveData[offset];
+        result |= globalState.saveData[offset + 1] << 8;
+        result |= globalState.saveData[offset + 2] << 16;
+        result |= globalState.saveData[offset + 3] << 24;
+        result |= globalState.saveData[offset + 4] << 32;
+        result |= globalState.saveData[offset + 5] << 40;
+        result |= globalState.saveData[offset + 6] << 48;
+        result |= globalState.saveData[offset + 7] << 56;
         return result;
     }
 

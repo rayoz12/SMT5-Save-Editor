@@ -1,5 +1,9 @@
 #include "ui/mainApplication.hpp"
 
+#include "util/state.hpp"
+#include "crypto/crypto.hpp"
+#include "util/debug.hpp"
+
 // Implement all the layout/application functions here
 
 namespace editor::ui
@@ -11,6 +15,11 @@ namespace editor::ui
         this->saveEditorGeneralLayout = SaveEditorGeneralLayout::New();
         // this->saveEditorPlayerLayout = SaveEditorPlayerLayout::New();
         this->saveEditorItemLayout = SaveEditorItemLayout::New();
+
+        this->saveSelectorLayout->SetOnInput(std::bind(&SaveSelectorLayout::onInput, this->saveSelectorLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
+        this->saveEditorGeneralLayout->SetOnInput(std::bind(&SaveEditorGeneralLayout::onInput, this->saveEditorGeneralLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
+        // this->saveEditorPlayerLayout->SetOnInput(std::bind(&SaveEditorPlayerLayout::onInput, this->saveEditorPlayerLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
+        this->saveEditorItemLayout->SetOnInput(std::bind(&SaveEditorItemLayout::onInput, this->saveEditorItemLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
     }
 
     void MainApplication::loadPage(Pages page) {
@@ -19,17 +28,21 @@ namespace editor::ui
         case Pages::General:
             this->saveEditorGeneralLayout->initialiseFromSave();
             this->LoadLayout(this->saveEditorGeneralLayout);
+            currentPage = page;
             break;
         case Pages::Player:
         case Pages::Items:
             this->saveEditorItemLayout->initialiseFromSave();
             this->LoadLayout(this->saveEditorItemLayout);
+            currentPage = page;
             break;
         case Pages::Demons:        
         default:
             printf("Page not Implemented");
             break;
         }
+
+        // currentPage = page;
     }
 
     void MainApplication::nextPage() {
@@ -62,6 +75,19 @@ namespace editor::ui
             printf("Page not Implemented");
             break;
         }
+    }
+
+    void MainApplication::loadSave() {
+        // decrypt
+        int result = editor::crypto::decrypt(globalState.savePath, globalState.saveData);
+        if (result != 0) {
+            this->CreateShowDialog("Failed to Read File", "Couldn't read File!", {"OK"}, false);
+            return;
+        }
+
+        //editor::debug::printBytes(0x1D, 15);
+
+        this->loadPage(Pages::General);
     }
 
     void MainApplication::OnLoad()
@@ -102,10 +128,10 @@ namespace editor::ui
             }
             else if(Down & HidNpadButton_B) // If + is pressed, exit application
             {
-                this->Close();
+                this->CloseWithFadeOut();
             }
             else if(Down & HidNpadButton_Plus) {
-
+                
             }
         });
     }

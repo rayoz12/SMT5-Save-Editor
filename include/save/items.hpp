@@ -7,6 +7,8 @@
 #include "save/saveInterface.hpp"
 
 namespace editor::save {
+    const int ItemOffset = 0x33A1;
+
     struct Item {
         std::string name;
         long offset;
@@ -36,9 +38,14 @@ namespace editor::save {
          * 
          */
         void parseSave();
+        
+        // Commit changes t the save
         void updateSave();
+
+        // Add an item to the player
         void addItem(UsedItem item);
-        void getNewItems();
+
+        // Load items from list
         void loadItems();
 
         SaveInterface saveInterface;

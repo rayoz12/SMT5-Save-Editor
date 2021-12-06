@@ -34,6 +34,8 @@ namespace editor::ui
             void nextPage();
             void previousPage();
 
+            void loadSave();
+
         private:
             
             // Layout instance

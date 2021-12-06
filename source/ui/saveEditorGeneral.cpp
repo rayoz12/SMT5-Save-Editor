@@ -30,7 +30,7 @@ namespace editor::ui {
         this->butText->SetColor(COLOR("#FFFFFFFF"));
         this->topRect = pu::ui::elm::Rectangle::New(0, 0, 1280, 94, COLOR("#0d005980"));
         this->botRect = pu::ui::elm::Rectangle::New(0, 659, 1280, 61, COLOR("#0d005980"));
-        SetBackgroundImage("romfs:/images/background2.png");
+        SetBackgroundImage("romfs:/images/background1.jpg");
 
 
         this->generalSectionText = pu::ui::elm::TextBlock::New(10, 50, "General");
@@ -65,6 +65,14 @@ namespace editor::ui {
         this->difficulty = pu::ui::elm::MenuItem::New("difficulty: #!NO_VALUE");
         this->playTime = pu::ui::elm::MenuItem::New("playTime: #!NO_VALUE");
         this->dateSaved = pu::ui::elm::MenuItem::New("dateSaved: #!NO_VALUE");
+
+        this->firstName->SetColor(COLOR("#FFFFFFFF"));
+        this->lastName->SetColor(COLOR("#FFFFFFFF"));
+        this->macca->SetColor(COLOR("#FFFFFFFF"));
+        this->glory->SetColor(COLOR("#FFFFFFFF"));
+        this->difficulty->SetColor(COLOR("#FFFFFFFF"));
+        this->playTime->SetColor(COLOR("#FFFFFFFF"));
+        this->dateSaved->SetColor(COLOR("#FFFFFFFF"));
 
         this->generalMenu->AddItem(this->firstName);
         this->generalMenu->AddItem(this->lastName);
@@ -104,29 +112,38 @@ namespace editor::ui {
 
     void SaveEditorGeneralLayout::refreshMenuItems() {
         this->generalMenu->ClearItems();
-        this->menuIDs.clear();
-
-        auto usedItems = itemManager.usedItems;
-        for (auto &&item : itemManager.usedItems) {
-            
-            std::ostringstream textElem;
-            textElem << item.second.item.name << ": " << std::to_string(item.second.count);
-            // printf("%s: %d\n", item.second.item.name.c_str(), item.second.count);
-            pu::ui::elm::MenuItem::Ref itemElem = pu::ui::elm::MenuItem::New(textElem.str());
-            itemElem->SetColor(COLOR("#FFFFFFFF"));
-
-            this->generalMenu->AddItem(itemElem);
-            this->menuIDs.push_back(item.first);
-        }
+        
+        this->generalMenu->AddItem(this->firstName);
+        this->generalMenu->AddItem(this->lastName);
+        this->generalMenu->AddItem(this->macca);
+        this->generalMenu->AddItem(this->glory);
+        this->generalMenu->AddItem(this->difficulty);
+        this->generalMenu->AddItem(this->playTime);
+        this->generalMenu->AddItem(this->dateSaved);
 
         mainApp->CallForRender();
     }
 
     void SaveEditorGeneralLayout::initialiseFromSave() {
         
-        // printf("Initialising Item Page\n");
+        printf("Initialising General Page\n");
+        auto firstNameValue = saveInterface.getString(Offsets::FirstName, 16);
+        auto lastNameValue = saveInterface.getString(Offsets::LastName, 16);
+        auto maccaValue = saveInterface.get4Bytes(Offsets::Macca);
+        auto gloryValue = saveInterface.get4Bytes(Offsets::Glory);
+        auto difficultyValue = saveInterface.getByte(Offsets::GameDifficulty);
+        auto playTimeValue = saveInterface.get4Bytes(Offsets::PlayTime);
+        auto dateSavedValue = saveInterface.get8Bytes(Offsets::DateSaved);
 
-        itemManager.parseSave();
+        printf("Writing first name %s, %s\n", firstNameValue.AsUTF8().c_str(), lastNameValue.AsUTF8().c_str());
+        this->firstName->SetName(pu::String("firstName: ") + firstNameValue);
+        this->lastName->SetName(pu::String("lastName: ") + lastNameValue);
+        this->macca->SetName(pu::String("macca: ") + std::to_string(maccaValue));
+        this->glory->SetName(pu::String("glory: ") + std::to_string(gloryValue));
+        this->difficulty->SetName(pu::String("difficulty: ") + std::to_string(difficultyValue));
+        this->playTime->SetName(pu::String("playTime: ") + std::to_string(playTimeValue));
+        this->dateSaved->SetName(pu::String("dateSaved: ") + std::to_string(dateSavedValue));
+
 
         refreshMenuItems();
 
