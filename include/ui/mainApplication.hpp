@@ -6,6 +6,7 @@
 
 #include "ui/saveSelector.hpp"
 #include "ui/SaveEditorGeneral.hpp"
+#include "ui/SaveEditorPlayer.hpp"
 #include "ui/SaveEditorItems.hpp"
 
 // Define your application (can't instantiate base class, so need to make a derived one)
@@ -41,7 +42,7 @@ namespace editor::ui
             // Layout instance
             SaveSelectorLayout::Ref saveSelectorLayout;
             SaveEditorGeneralLayout::Ref saveEditorGeneralLayout;
-            // SaveEditorPlayerLayout::Ref saveEditorPlayerLayout;
+            SaveEditorPlayerLayout::Ref saveEditorPlayerLayout;
             SaveEditorItemLayout::Ref saveEditorItemLayout;
             
     };    

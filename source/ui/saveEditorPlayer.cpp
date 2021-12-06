@@ -5,7 +5,7 @@
 namespace fs = std::filesystem;
 #include <switch.h>
 
-#include "ui/SaveEditorItems.hpp"
+#include "ui/SaveEditorPlayer.hpp"
 #include "ui/mainApplication.hpp"
 #include "util/config.hpp"
 #include "util/debug.hpp"
@@ -24,10 +24,10 @@ namespace editor::ui {
     using namespace editor::save;
     using namespace editor::util::keyboard;
 
-    SaveEditorItemLayout::SaveEditorItemLayout() : Layout::Layout()
+    SaveEditorPlayerLayout::SaveEditorPlayerLayout() : Layout::Layout()
     {
 
-        //std::cout << "Constructing SaveEditorItemLayout" << std::endl;
+        //std::cout << "Constructing SaveEditorPlayerLayout" << std::endl;
 
         this->butText = pu::ui::elm::TextBlock::New(10, 678, "\ue0e0 Edit    \ue0e1 Exit     \ue0ef Save    \ue0e4 General      \ue0e5 Items");
         this->butText->SetColor(COLOR("#FFFFFFFF"));
@@ -61,22 +61,11 @@ namespace editor::ui {
         this->Add(this->generalMenu);
     }
 
-    void SaveEditorItemLayout::onInput(u64 Down, u64 Up, u64 Held, pu::ui::Touch Pos) {
+    void SaveEditorPlayerLayout::onInput(u64 Down, u64 Up, u64 Held, pu::ui::Touch Pos) {
         // //std::cout << "OnInput\n";
         if ((Down & HidNpadButton_A)) {
             auto idx = this->generalMenu->GetSelectedIndex();
-            auto id = this->menuIDs[idx];
-            auto& currentValue = this->itemManager.usedItems[id];
-            auto newValue = keyboard.inputByte(currentValue.count);
-            // printf("%s, %d, %d\n", currentValue.item.name.c_str(), currentValue.count, newValue);
-            if (currentValue.count == newValue) {
-                return;
-            }
-
-            currentValue.count = newValue;
-
-            itemManager.updateSave();
-            refreshMenuItems();
+            
         }
         else if (Down & HidNpadButton_Right) {
             auto idx = this->generalMenu->GetSelectedIndex();
@@ -90,31 +79,16 @@ namespace editor::ui {
         }
     }
 
-    void SaveEditorItemLayout::refreshMenuItems() {
+    void SaveEditorPlayerLayout::refreshMenuItems() {
         this->generalMenu->ClearItems();
-        this->menuIDs.clear();
-
-        auto usedItems = itemManager.usedItems;
-        for (auto &&item : itemManager.usedItems) {
-            
-            std::ostringstream textElem;
-            textElem << item.second.item.name << ": " << std::to_string(item.second.count);
-            // printf("%s: %d\n", item.second.item.name.c_str(), item.second.count);
-            pu::ui::elm::MenuItem::Ref itemElem = pu::ui::elm::MenuItem::New(textElem.str());
-            itemElem->SetColor(COLOR("#FFFFFFFF"));
-
-            this->generalMenu->AddItem(itemElem);
-            this->menuIDs.push_back(item.first);
-        }
+        
 
         mainApp->CallForRender();
     }
 
-    void SaveEditorItemLayout::initialiseFromSave() {
+    void SaveEditorPlayerLayout::initialiseFromSave() {
         
         // printf("Initialising Item Page\n");
-
-        itemManager.parseSave();
 
         refreshMenuItems();
 

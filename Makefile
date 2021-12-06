@@ -39,9 +39,9 @@ include $(DEVKITPRO)/libnx/switch_rules
 #---------------------------------------------------------------------------------
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
-SOURCES		:=	source source/ui source/util source/crypto source/save lib/tiny-AES-c
+SOURCES		:=	source source/ui source/util source/crypto source/save
 DATA		:=	data
-INCLUDES	:=	include include/ui include/util include/crypto include/save lib/Plutonium/Plutonium/out/include lib/tiny-AES-c
+INCLUDES	:=	include include/ui include/util include/crypto include/save lib/Plutonium/Plutonium/out/include
 APP_TITLE	:=	SMT V Save Editor
 APP_AUTHOR	:=	Rytek
 APP_VERSION	:=	0.0.1

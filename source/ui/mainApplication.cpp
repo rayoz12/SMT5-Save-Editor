@@ -13,12 +13,12 @@ namespace editor::ui
     void MainApplication::createPages() {
         this->saveSelectorLayout = SaveSelectorLayout::New();
         this->saveEditorGeneralLayout = SaveEditorGeneralLayout::New();
-        // this->saveEditorPlayerLayout = SaveEditorPlayerLayout::New();
+        this->saveEditorPlayerLayout = SaveEditorPlayerLayout::New();
         this->saveEditorItemLayout = SaveEditorItemLayout::New();
 
         this->saveSelectorLayout->SetOnInput(std::bind(&SaveSelectorLayout::onInput, this->saveSelectorLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
         this->saveEditorGeneralLayout->SetOnInput(std::bind(&SaveEditorGeneralLayout::onInput, this->saveEditorGeneralLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
-        // this->saveEditorPlayerLayout->SetOnInput(std::bind(&SaveEditorPlayerLayout::onInput, this->saveEditorPlayerLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
+        this->saveEditorPlayerLayout->SetOnInput(std::bind(&SaveEditorPlayerLayout::onInput, this->saveEditorPlayerLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
         this->saveEditorItemLayout->SetOnInput(std::bind(&SaveEditorItemLayout::onInput, this->saveEditorItemLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
     }
 
@@ -31,6 +31,10 @@ namespace editor::ui
             currentPage = page;
             break;
         case Pages::Player:
+            this->saveEditorGeneralLayout->initialiseFromSave();
+            this->LoadLayout(this->saveEditorGeneralLayout);
+            currentPage = page;
+            break;
         case Pages::Items:
             this->saveEditorItemLayout->initialiseFromSave();
             this->LoadLayout(this->saveEditorItemLayout);
