@@ -36,6 +36,7 @@ namespace editor::ui
             void previousPage();
 
             void loadSave();
+            void writeSave();
 
         private:
             

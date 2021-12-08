@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <vector>
 #include <filesystem>
 namespace fs = std::filesystem;
 #include <switch.h>
@@ -24,7 +25,7 @@ namespace editor::ui {
         this->topRect = pu::ui::elm::Rectangle::New(0, 0, 1280, 94, COLOR("#0d005980"));
         this->botRect = pu::ui::elm::Rectangle::New(0, 659, 1280, 61, COLOR("#0d005980"));
 
-        auto title = pu::ui::elm::TextBlock::New(180, 35, "SMT 5 Save Editor - Select a Save File");
+        this->title = pu::ui::elm::TextBlock::New(180, 35, "SMT 5 Save Editor - Select a Save File");
         title->SetColor(COLOR("#dbcc9cFF"));
         
 
@@ -33,6 +34,92 @@ namespace editor::ui {
         // Create the Save Slots menu
         this->saveMenu = pu::ui::elm::Menu::New(0, 95, 1280, COLOR("#0d005900"), 94, 6);
 
+        // Load the saves from the game
+        // Check which Games are installed
+        std::vector<std::uint64_t> titles;
+        Result rc = saveLoader.getSMTVTitleIDSaves(titles);
+        if (R_FAILED(rc)) {
+            printf("Failed to get titles!\n");
+            return;
+        }
+        if (titles.size() == 0) {
+            printf("SMT5 is not Installed!\n");
+            return;
+        }
+        else if (titles.size() > 1) {
+            isInRegionSelectMode = true;
+            title->SetText("SMT 5 Save Editor - Select a Region");
+            printf("In Region Select Mode\n");
+        }
+        else {
+            isLoadedFromGame = true;
+            selectedTitleID = titles[0];
+            printf("Found game\n");
+        }
+
+        if (isLoadedFromGame) {
+            loadSavesFromTitleID();
+        }
+        else if (isInRegionSelectMode) {
+            auto NA = pu::ui::elm::MenuItem::New("North America: 0x010063B012DC6000");
+            auto EU = pu::ui::elm::MenuItem::New("Europe: 0x0100B870126CE000");
+            NA->SetColor(COLOR("#FFFFFFFF"));
+            EU->SetColor(COLOR("#FFFFFFFF"));
+            this->saveMenu->AddItem(NA);
+            this->saveMenu->AddItem(EU);
+        }
+
+        // Add the instance to the layout. IMPORTANT! this MUST be done for them to be used, having them as members is not enough (just a simple way to keep them)
+        this->Add(this->topRect);
+        this->Add(this->botRect);
+        this->Add(this->butText);
+        this->Add(this->saveMenu);
+        this->Add(title);
+    }
+
+    void SaveSelectorLayout::loadSavesFromTitleID() {
+        // Mount and Read Files
+        AccountUid account;
+        Result rc = saveLoader.getAccount(account);
+        if (R_FAILED(rc)) {
+            printf("Failed to get account...\n");
+            setError("Failed to Load account");
+            loadFromFS();
+            return;
+        }
+        rc = saveLoader.mountSave("save", selectedTitleID, account);
+        if (R_FAILED(rc)) {
+            printf("Failed to get account...\n");
+            setError("Failed to mount save");
+            loadFromFS();
+            return;
+        }
+
+        this->saveMenu->ClearItems();
+
+
+        bool isEntryAdded = false;
+
+        for (const auto & entry : fs::directory_iterator("save:/")) {
+            std::string filename = entry.path().filename().string();
+            if (!filename.compare("SysSave")) {
+                continue;
+            }
+            printf("%s\n", entry.path().filename().c_str());
+            auto saveItem = pu::ui::elm::MenuItem::New(filename);
+            saveItem->SetColor(COLOR("#FFFFFFFF"));
+            this->saveItems.push_back("save:/" + filename);
+            this->saveMenu->AddItem(saveItem);
+            isEntryAdded = true;
+        }
+
+        if (!isEntryAdded) {
+            setError("No saves found on mounted save. Are you sure you chose the right region?");
+        }
+
+    }
+
+    void SaveSelectorLayout::loadFromFS() {
         if (!fs::exists(editor::config::saveFolder)) {
             // mainApp->CreateShowDialog("Save Directory not Found", "Couldn't find save directory. Quitting...", {"Ok"}, true);
             printf("Save Directory not Found\n");
@@ -49,35 +136,48 @@ namespace editor::ui {
             if (!filename.compare("SysSave")) {
                 continue;
             }
-            //std::cout << entry.path().filename() << std::endl;
+            printf("%s\n", entry.path().filename().c_str());
             auto saveItem = pu::ui::elm::MenuItem::New(filename);
             saveItem->SetColor(COLOR("#FFFFFFFF"));
-            this->saveItems.push_back(filename);
+            this->saveItems.push_back(editor::config::saveFolder + "/" + filename);
             this->saveMenu->AddItem(saveItem);
             isEntryAdded = true;
         }
 
         if (!isEntryAdded) {
-            auto error = pu::ui::elm::TextBlock::New(150, 500, "Please move save files (using something like nx-shell) to: " + editor::config::saveFolder);
-            error->SetColor(COLOR("#FF1111FF"));
-            this->Add(error);
+            setError("Please move save files (using something like nx-shell) to: " + editor::config::saveFolder);
         }
+    }
 
-        // Add the instance to the layout. IMPORTANT! this MUST be done for them to be used, having them as members is not enough (just a simple way to keep them)
-        this->Add(this->topRect);
-        this->Add(this->botRect);
-        this->Add(this->butText);
-        this->Add(this->saveMenu);
-        this->Add(title);
+    void SaveSelectorLayout::setError(std::string errorString) {
+        auto error = pu::ui::elm::TextBlock::New(150, 500, errorString);
+        error->SetColor(COLOR("#FF1111FF"));
+        this->Add(error);
     }
 
     void SaveSelectorLayout::onInput(u64 Down, u64 Up, u64 Held, pu::ui::Touch Pos) {
         // //std::cout << "OnInput\n";
         if ((Down & HidNpadButton_A)) {
             auto idx = this->saveMenu->GetSelectedIndex();
-            //std::cout << idx << std::endl;
+            
+            if (isInRegionSelectMode) {
+                if (idx == 0) {
+                    selectedTitleID = editor::saveLoader::TITLEID_NA;
+                }
+                else if (idx == 1) {
+                    selectedTitleID = editor::saveLoader::TITLEID_EU;
+                }
+                else {
+                    printf("Unknown Index!\n");
+                }
+                loadSavesFromTitleID();
+                isInRegionSelectMode = false;
+                title->SetText("SMT 5 Save Editor - Select a Save File");
+                return;
+            }
+
             if (idx < saveItems.size()) {
-                globalState.savePath = std::string(editor::config::saveFolder + "/" + saveItems[idx]);
+                globalState.savePath = std::string(saveItems[idx]);
                 //std::cout << saveItems[idx] << std::endl;
                 //std::cout << globalState.savePath << std::endl;
                 mainApp->loadSave();

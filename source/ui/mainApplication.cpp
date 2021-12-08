@@ -1,13 +1,14 @@
 #include "ui/mainApplication.hpp"
 
+#include <switch.h>
 #include "util/state.hpp"
 #include "crypto/crypto.hpp"
 #include "util/debug.hpp"
+#include "save/saveLoader.hpp"
 
 // Implement all the layout/application functions here
 
-namespace editor::ui
-{
+namespace editor::ui {
     MainApplication *mainApp;
 
     void MainApplication::createPages() {
@@ -31,8 +32,8 @@ namespace editor::ui
             currentPage = page;
             break;
         case Pages::Player:
-            this->saveEditorGeneralLayout->initialiseFromSave();
-            this->LoadLayout(this->saveEditorGeneralLayout);
+            this->saveEditorPlayerLayout->initialiseFromSave();
+            this->LoadLayout(this->saveEditorPlayerLayout);
             currentPage = page;
             break;
         case Pages::Items:
@@ -53,10 +54,11 @@ namespace editor::ui
         switch (currentPage)
         {
         case Pages::General:
-            this->saveEditorGeneralLayout->initialiseFromSave();
-            this->LoadLayout(this->saveEditorGeneralLayout);
+            this->loadPage(Pages::Player);
             break;
         case Pages::Player:
+            this->loadPage(Pages::Items);
+            break;
         case Pages::Items:
         case Pages::Demons:        
         default:
@@ -69,11 +71,13 @@ namespace editor::ui
         switch (currentPage)
         {
         case Pages::General:
-            this->saveEditorGeneralLayout->initialiseFromSave();
-            this->LoadLayout(this->saveEditorGeneralLayout);
             break;
         case Pages::Player:
+            this->loadPage(Pages::General);
+            break;
         case Pages::Items:
+            this->loadPage(Pages::Player);
+            break;
         case Pages::Demons:        
         default:
             printf("Page not Implemented");
@@ -89,16 +93,38 @@ namespace editor::ui
             return;
         }
 
-        //editor::debug::printBytes(0x1D, 15);
+        editor::debug::printBytes(0x1D, 15);
 
         this->loadPage(Pages::General);
     }
+
+    void MainApplication::writeSave() {
+        // encrypt
+        
+
+        int result = editor::crypto::encrypt(globalState.savePath, globalState.saveData);
+        if (result != 0) {
+            this->CreateShowDialog("Failed to Write File", "Couldn't Write File!", {"OK"}, false);
+            return;
+        }
+
+        if (this->saveSelectorLayout->isLoadedFromGame) {
+            // we have to commit our changes
+            Result rc = fsdevCommitDevice("save");
+        }
+
+        this->CreateShowDialog("Finished Writing", "Your save is ready!", {"OK"}, false);
+
+        editor::debug::printBytes(0x1D, 15);
+
+        // this->loadPage(Pages::General);
+    }
+
 
     void MainApplication::OnLoad()
     {
         mainApp = this;
 
-        // Create the layout (calling the smart constructor above)
         createPages();
 
         // Load the layout. In applications layouts are loaded, not added into a container (you don't select an added layout, just load it from this function)
@@ -134,8 +160,20 @@ namespace editor::ui
             {
                 this->CloseWithFadeOut();
             }
-            else if(Down & HidNpadButton_Plus) {
-                
+            else if(Down & HidNpadButton_Plus) // If + is pressed, exit application
+            {
+                int opt = this->CreateShowDialog("Save Changes?", "Write updated Save?", { "Yes", "Cancel" }, true);
+                if((opt == -1) || (opt == -2)) // -1 and -2 are similar, but if the user cancels manually -1 is set, other types or cancel should be -2.
+                {
+                    return;
+                }
+                this->writeSave();
+            }
+            else if(Down & HidNpadButton_L) {
+                this->previousPage();
+            }
+            else if(Down & HidNpadButton_R) {
+                this->nextPage();
             }
         });
     }

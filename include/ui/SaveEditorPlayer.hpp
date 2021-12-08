@@ -14,9 +14,9 @@ namespace editor::ui {
      */
     struct Stat {
         pu::String name;
-        pu::ui::elm::MenuItem baseElm;
-        pu::ui::elm::MenuItem balmElm;
-        long offset;
+        long baseOffset;
+        long balmOffset;
+        long combinedOffset;
     };
     
     class SaveEditorPlayerLayout : public pu::ui::Layout
@@ -50,6 +50,8 @@ namespace editor::ui {
             pu::ui::elm::TextBlock::Ref playerSectionText;
             pu::ui::elm::TextBlock::Ref itemsSectionText;
             pu::ui::elm::TextBlock::Ref demonsSectionText;
+
+            std::vector<Stat> stats;
 
             editor::save::SaveInterface saveInterface;
             editor::util::keyboard::Keyboard keyboard;
