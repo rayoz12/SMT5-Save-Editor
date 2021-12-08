@@ -9,14 +9,13 @@ Supports:
 - Player Items (not including relics)
 
 # Instructions
-1. Dump your save files (with Checkpoint or JKSV)
-2. Copy your save file(s) to `/switch/SMT5Saves` using something like nxshell (or anything to move files around)
-3. Open the nro
-4. Select a save file
-5. Make your changes
-6. Press `+` to apply your changes
-7. Copy the save file(s) back to your checkpoint / jksv folder
-8. Import the saves
+1. Open the nro
+2. Select a region if it prompts you to. (We have to load saves from one or another and I detected that you have both).
+2. Select a save file.
+3. Make your changes
+4. Press `+` to apply your changes
+5. Copy the save file(s) back to your checkpoint / jksv folder
+6. Import the saves
 
 ![1](screenshots/1.jpg)
 ![2](screenshots/2.jpg)
