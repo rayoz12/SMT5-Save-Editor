@@ -68,7 +68,7 @@ namespace editor::ui {
             auto id = this->menuIDs[idx];
             auto& currentValue = this->itemManager.usedItems[id];
             auto newValue = keyboard.inputByte(currentValue.count);
-            // printf("%s, %d, %d\n", currentValue.item.name.c_str(), currentValue.count, newValue);
+            printf("%s, %d, %d\n", currentValue.item.name.c_str(), currentValue.count, newValue);
             if (currentValue.count == newValue) {
                 return;
             }
@@ -76,6 +76,10 @@ namespace editor::ui {
             currentValue.count = newValue;
 
             itemManager.updateSave();
+            editor::save::SaveInterface saveInterface;
+            auto fetchedValue = saveInterface.getByte(currentValue.item.offset);
+            printf("Fetched Value %d\n", fetchedValue);
+
             refreshMenuItems();
         }
         else if (Down & HidNpadButton_Right) {

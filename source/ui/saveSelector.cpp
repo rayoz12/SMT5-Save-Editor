@@ -69,6 +69,8 @@ namespace editor::ui {
             this->saveMenu->AddItem(EU);
         }
 
+        // loadFromFS();
+
         // Add the instance to the layout. IMPORTANT! this MUST be done for them to be used, having them as members is not enough (just a simple way to keep them)
         this->Add(this->topRect);
         this->Add(this->botRect);
@@ -116,6 +118,8 @@ namespace editor::ui {
         if (!isEntryAdded) {
             setError("No saves found on mounted save. Are you sure you chose the right region?");
         }
+
+        isLoadedFromGame = true;
 
     }
 
@@ -178,8 +182,8 @@ namespace editor::ui {
 
             if (idx < saveItems.size()) {
                 globalState.savePath = std::string(saveItems[idx]);
-                //std::cout << saveItems[idx] << std::endl;
-                //std::cout << globalState.savePath << std::endl;
+                printf("%s\n", saveItems[idx].c_str());
+                printf("%s\n", globalState.savePath.c_str());
                 mainApp->loadSave();
             }
         }

@@ -24,7 +24,7 @@ SwkbdTextCheckResult validate_name(char* tmp_string, size_t tmp_string_size) {
 
 SwkbdTextCheckResult validate_number(char* tmp_string, size_t tmp_string_size) {
     std::string string(tmp_string);
-    printf("Validating Name: %s\n", string.c_str());
+    printf("Validating Number: %s\n", string.c_str());
     if (!is_number(string)) {
         strncpy(tmp_string, "Only Numbers are allowed!", 64);
         return SwkbdTextCheckResult_Bad;

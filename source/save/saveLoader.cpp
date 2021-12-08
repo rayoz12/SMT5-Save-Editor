@@ -65,12 +65,12 @@ namespace editor::saveLoader
                 // printf("Application ID: 0x%lu\n", info.application_id);
                 // printf("Account ID: 0x%lu 0x%lu\n", info.uid.uid[1], info.uid.uid[0]);
                 if (info.application_id == TITLEID_NA) {
-                    printf("Found SMT 5 NA\n");
+                    // printf("Found SMT 5 NA\n");
                     titles.push_back(info.application_id);
 
                 }
                 else if (info.application_id == TITLEID_EU) {
-                    printf("Found SMT 5 EU\n");
+                    // printf("Found SMT 5 EU\n");
                     titles.push_back(info.application_id);
                 }
             }

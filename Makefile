@@ -44,7 +44,7 @@ DATA		:=	data
 INCLUDES	:=	include include/ui include/util include/crypto include/save lib/Plutonium/Plutonium/out/include
 APP_TITLE	:=	SMT V Save Editor
 APP_AUTHOR	:=	Rytek
-APP_VERSION	:=	0.0.1
+APP_VERSION	:=	0.0.2
 ROMFS	:=	romfs
 
 #---------------------------------------------------------------------------------

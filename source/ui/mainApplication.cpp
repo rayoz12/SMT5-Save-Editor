@@ -93,7 +93,7 @@ namespace editor::ui {
             return;
         }
 
-        editor::debug::printBytes(0x1D, 15);
+        // editor::debug::printBytes(0x1D, 15);
 
         this->loadPage(Pages::General);
     }
@@ -111,11 +111,16 @@ namespace editor::ui {
         if (this->saveSelectorLayout->isLoadedFromGame) {
             // we have to commit our changes
             Result rc = fsdevCommitDevice("save");
+            if (R_FAILED(rc)) {
+                printf("Failed to Commit Save: %d", rc);
+                this->CreateShowDialog("Failed to Commit Save Changes", "Failed to commit save changes", {"OK"}, false);
+                return;
+            }
         }
 
         this->CreateShowDialog("Finished Writing", "Your save is ready!", {"OK"}, false);
 
-        editor::debug::printBytes(0x1D, 15);
+        // editor::debug::printBytes(0x1D, 15);
 
         // this->loadPage(Pages::General);
     }
