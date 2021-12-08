@@ -30,7 +30,7 @@ Supports:
 - Amuyea https://gbatemp.net/members/amuyea.437000/
     - For his work on initially documenting the save and setting up the discord server
     - https://docs.google.com/spreadsheets/d/1poQgijkzhdIOyKthD9kpiW1ZVC2Qr-eomUE0tCOJ2KE/edit#gid=480151356
-- JammieDodgers#5242 @ SMTV Discord Server
+- Everyone @ SMTV Discord Server
     - For literally all of the offsets
 - https://github.com/FlagBrew/Checkpoint
     - Accounts and Save Loading
