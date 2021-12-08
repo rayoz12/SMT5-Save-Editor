@@ -14,8 +14,7 @@ Supports:
 2. Select a save file.
 3. Make your changes
 4. Press `+` to apply your changes
-5. Copy the save file(s) back to your checkpoint / jksv folder
-6. Import the saves
+6. Play your hacked game
 
 ![1](screenshots/1.jpg)
 ![2](screenshots/2.jpg)
