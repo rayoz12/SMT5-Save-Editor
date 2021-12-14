@@ -1,17 +1,21 @@
 #include "crypto/crypto.hpp"
 
-#include "switch.h"
 #include <stdio.h>
+#include <filesystem>
+#include <ctime>
+
+#include "switch.h"
+
+#include "util/config.hpp"
 
 namespace editor::crypto
 {
-
     int copy(std::string srcPath, std::string destPath) {
         int err;
         FILE *srcFilePtr, *destFilePtr;
         long filelen;
         srcFilePtr = fopen(srcPath.c_str(), "rb");  // Open the file in binary mode
-        destFilePtr = fopen(destPath.c_str(), "rb");  // Open the file in binary mode
+        destFilePtr = fopen(destPath.c_str(), "wb");  // Open the file in binary mode
         
         if (srcFilePtr == NULL || destFilePtr == NULL) {
             return errno;
@@ -27,6 +31,8 @@ namespace editor::crypto
 
         std::vector<uint8_t> buffer;
         buffer.reserve(filelen);
+        buffer.resize(filelen);
+        printf("File Len: %d\n", filelen);
 
         fread(&buffer[0], filelen, 1, srcFilePtr);
 
@@ -39,6 +45,32 @@ namespace editor::crypto
         
         return 0;
     };
+
+    int backupSave(std::string filePath) {
+        std::filesystem::path savePath = filePath;
+        std::filesystem::path backupSaveDirPath = editor::config::saveBackupFolder;
+        std::filesystem::path backupSavePath = backupSaveDirPath / savePath.filename();
+        backupSavePath += ".backup";
+
+        // get time and date
+        time_t rawtime;
+        struct tm * timeinfo;
+        char buffer[80];
+
+        time (&rawtime);
+        timeinfo = localtime(&rawtime);
+
+        strftime(buffer,sizeof(buffer),"%d%m%Y_%H_%M_%S",timeinfo);
+        std::string dateTime(buffer);
+
+        backupSavePath += dateTime;
+
+        printf("Backup Path: %s\n", backupSavePath.c_str());
+
+        return copy(filePath, backupSavePath.string());
+    }
+
+    
 
     int encrypt(std::string filePath, std::vector<uint8_t>& src) {
         int filelen = src.size();
@@ -68,6 +100,8 @@ namespace editor::crypto
         if (fileptr == NULL) {
             return errno;
         }
+
+        backupSave(filePath);
         
         fwrite(fileData, filelen, 1, fileptr);
         fflush(fileptr);

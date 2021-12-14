@@ -39,12 +39,12 @@ include $(DEVKITPRO)/libnx/switch_rules
 #---------------------------------------------------------------------------------
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
-SOURCES		:=	source source/ui source/util source/crypto source/save
+SOURCES		:=	source source/ui source/ui/demon source/util source/crypto source/save
 DATA		:=	data
-INCLUDES	:=	include include/ui include/util include/crypto include/save lib/Plutonium/Plutonium/out/include
+INCLUDES	:=	include include/ui include/ui/demon include/util include/crypto include/save lib/Plutonium/Plutonium/out/include lib/nlohmann-json
 APP_TITLE	:=	SMT V Save Editor
 APP_AUTHOR	:=	Rytek
-APP_VERSION	:=	0.0.2
+APP_VERSION	:=	0.0.3
 ROMFS	:=	romfs
 
 #---------------------------------------------------------------------------------

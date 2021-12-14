@@ -38,3 +38,6 @@
 build
 exampleSaves
 romfs
+
+demon_sprites
+scripts/*.jpeg

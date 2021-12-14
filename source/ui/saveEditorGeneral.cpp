@@ -26,7 +26,7 @@ namespace editor::ui {
 
         //std::cout << "Constructing SaveEditorGeneralLayout" << std::endl;
 
-        this->butText = pu::ui::elm::TextBlock::New(10, 678, "\ue0e0 Edit    \ue0e1 Exit     \ue0ef Save     \ue0e5 Player");
+        this->butText = pu::ui::elm::TextBlock::New(10, 678, "\ue0e0 Edit    \ue0e1 Exit    \ue0f0 Backup Save     \ue0ef Save     \ue0e5 Player");
         this->butText->SetColor(COLOR("#FFFFFFFF"));
         this->topRect = pu::ui::elm::Rectangle::New(0, 0, 1280, 94, COLOR("#0d005980"));
         this->botRect = pu::ui::elm::Rectangle::New(0, 659, 1280, 61, COLOR("#0d005980"));

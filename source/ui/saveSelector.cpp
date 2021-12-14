@@ -124,14 +124,6 @@ namespace editor::ui {
     }
 
     void SaveSelectorLayout::loadFromFS() {
-        if (!fs::exists(editor::config::saveFolder)) {
-            // mainApp->CreateShowDialog("Save Directory not Found", "Couldn't find save directory. Quitting...", {"Ok"}, true);
-            printf("Save Directory not Found\n");
-            fs::create_directory(editor::config::saveFolder);
-            // mainApp->Close();
-            // return;
-            // exit(-1);
-        }
 
         bool isEntryAdded = false;
 

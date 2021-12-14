@@ -35,6 +35,12 @@ namespace editor::save
         return result;
     }
 
+    int16_t SaveInterface::get2BytesSigned(long offset) {
+        int16_t result = globalState.saveData[offset];
+        result |= globalState.saveData[offset + 1] << 8;
+        return result;
+    }
+
     uint32_t SaveInterface::get4Bytes(long offset) {
         uint32_t result = globalState.saveData[offset];
         result |= globalState.saveData[offset + 1] << 8;
@@ -70,6 +76,11 @@ namespace editor::save
     }
 
     void SaveInterface::put2Bytes(long offset, uint16_t value) {
+        globalState.saveData[offset] = value & 0x000000ff;
+        globalState.saveData[offset + 1] = (value & 0x0000ff00) >> 8;
+    }
+
+    void SaveInterface::put2BytesSigned(long offset, int16_t value) {
         globalState.saveData[offset] = value & 0x000000ff;
         globalState.saveData[offset + 1] = (value & 0x0000ff00) >> 8;
     }

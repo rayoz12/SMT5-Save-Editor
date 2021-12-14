@@ -1,11 +1,11 @@
-#include <string>
+ #include <string>
 #include <iostream>
 #include <sstream>
 #include <filesystem>
 namespace fs = std::filesystem;
 #include <switch.h>
 
-#include "ui/SaveEditorItems.hpp"
+#include "ui/demon/demonSelector.hpp"
 #include "ui/mainApplication.hpp"
 #include "util/config.hpp"
 #include "util/debug.hpp"
@@ -17,6 +17,8 @@ namespace fs = std::filesystem;
 
 #define COLOR(hex) pu::ui::Color::FromHex(hex)
 
+std::vector<long> demonOffsets = {0xA94, 0xC1C, 0xDA4, 0xF2C, 0x10B4, 0x123C, 0x13C4, 0x154C, 0x16D4, 0x185C, 0x19E4, 0x1B6C, 0x1CF4, 0x1E7C, 0x2004, 0x218C, 0x2314, 0x249C, 0x2624, 0x27AC, 0x2934, 0x2ABC, 0x2C44, 0x2DCC };
+
 
 namespace editor::ui {
     extern MainApplication* mainApp;
@@ -24,10 +26,10 @@ namespace editor::ui {
     using namespace editor::save;
     using namespace editor::util::keyboard;
 
-    SaveEditorItemLayout::SaveEditorItemLayout() : Layout::Layout()
+    DemonSelectorLayout::DemonSelectorLayout() : Layout::Layout()
     {
 
-        //std::cout << "Constructing SaveEditorItemLayout" << std::endl;
+        //std::cout << "Constructing DemonSelectorLayout" << std::endl;
 
         this->butText = pu::ui::elm::TextBlock::New(10, 678, "\ue0e0 Edit    \ue0e1 Exit    \ue0f0 Backup Save     \ue0ef Save    \ue0e4 Player      \ue0e5 Demons");
         this->butText->SetColor(COLOR("#FFFFFFFF"));
@@ -41,9 +43,9 @@ namespace editor::ui {
         this->playerSectionText = pu::ui::elm::TextBlock::New(200, 50, "Player Stats");
         this->playerSectionText->SetColor(COLOR("#FFFFFFFF"));
         this->itemsSectionText = pu::ui::elm::TextBlock::New(400, 50, "Items");
-        this->itemsSectionText->SetColor(COLOR("#00FF00FF"));
+        this->itemsSectionText->SetColor(COLOR("#FFFFFFFF"));
         this->demonsSectionText = pu::ui::elm::TextBlock::New(600, 50, "Demons");
-        this->demonsSectionText->SetColor(COLOR("#FFFFFFFF"));
+        this->demonsSectionText->SetColor(COLOR("#00FF00FF"));
 
         // Create the Save menu
         this->generalMenu = pu::ui::elm::Menu::New(0, 95, 1280, COLOR("#0d005900"), 94, 6);        
@@ -61,25 +63,11 @@ namespace editor::ui {
         this->Add(this->generalMenu);
     }
 
-    void SaveEditorItemLayout::onInput(u64 Down, u64 Up, u64 Held, pu::ui::Touch Pos) {
+    void DemonSelectorLayout::onInput(u64 Down, u64 Up, u64 Held, pu::ui::Touch Pos) {
         // //std::cout << "OnInput\n";
         if ((Down & HidNpadButton_A)) {
             auto idx = this->generalMenu->GetSelectedIndex();
-            auto id = this->menuIDs[idx];
-            auto& currentValue = this->itemManager.usedItems[id];
-            auto newValue = keyboard.inputByte(currentValue.count);
-            printf("%s, %d, %d\n", currentValue.item.name.c_str(), currentValue.count, newValue);
-            if (currentValue.count == newValue) {
-                return;
-            }
-
-            currentValue.count = newValue;
-
-            itemManager.updateSave();
-            editor::save::SaveInterface saveInterface;
-            auto fetchedValue = saveInterface.getByte(currentValue.item.offset);
-            printf("Fetched Value %d\n", fetchedValue);
-
+            auto offset = demonOffsets[idx];
             refreshMenuItems();
         }
         else if (Down & HidNpadButton_Right) {
@@ -94,31 +82,33 @@ namespace editor::ui {
         }
     }
 
-    void SaveEditorItemLayout::refreshMenuItems() {
-        this->generalMenu->ClearItems();
-        this->menuIDs.clear();
+    void DemonSelectorLayout::refreshMenuItems() {
+        this->generalMenu->ClearItems();       
+        
+        for (auto &&offset : demonOffsets) {
+            auto hp = saveInterface.get2Bytes(offset);
+            // If hp != 0 that means a demon exists here
+            if (hp == 0) {
+                continue;
+            }
 
-        auto usedItems = itemManager.usedItems;
-        for (auto &&item : itemManager.usedItems) {
-            
-            std::ostringstream textElem;
-            textElem << item.second.item.name << ": " << std::to_string(item.second.count);
-            // printf("%s: %d\n", item.second.item.name.c_str(), item.second.count);
-            pu::ui::elm::MenuItem::Ref itemElem = pu::ui::elm::MenuItem::New(textElem.str());
-            itemElem->SetColor(COLOR("#FFFFFFFF"));
+            // Get the ID
+            uint16_t id = saveInterface.get2Bytes(offset + 82);
+            std::string name = demonDB.getName(id);
 
-            this->generalMenu->AddItem(itemElem);
-            this->menuIDs.push_back(item.first);
+            auto demonItem = pu::ui::elm::MenuItem::New(name);
+            demonItem->SetColor(COLOR("#FFFFFFFF"));
+            this->generalMenu->AddItem(demonItem);
+
         }
+        
 
         mainApp->CallForRender();
     }
 
-    void SaveEditorItemLayout::initialiseFromSave() {
+    void DemonSelectorLayout::initialiseFromSave() {
         
         // printf("Initialising Item Page\n");
-
-        itemManager.parseSave();
 
         refreshMenuItems();
 
