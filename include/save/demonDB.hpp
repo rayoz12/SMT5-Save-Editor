@@ -25,6 +25,7 @@ namespace editor::save::demon
         DemonDB();
 
         std::string getName(uint16_t id);
+        std::string getRace(uint16_t id);
     };
 
 } // namespace editor::save::demon

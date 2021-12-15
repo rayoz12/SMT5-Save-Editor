@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "save/saveInterface.hpp"
+#include "save/demonDB.hpp"
 
 namespace editor::save
 {
@@ -18,6 +19,11 @@ public:
     void save();
 
     long selfOffset;
+    demon::DemonDB demonDB;
+
+    // Other stuff that's useful
+    std::string name;
+    std::string race;
 
     // Stats
 	uint16_t hp;

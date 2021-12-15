@@ -47,6 +47,8 @@ namespace editor::ui {
             editor::save::SaveInterface saveInterface;
 
             // UI Vars
+            // Keep track of which offsets we've added to the menu
+            std::vector<long> menuOffsets;
             editor::save::demon::DemonDB demonDB;
     };
 }

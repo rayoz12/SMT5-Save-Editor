@@ -39,5 +39,5 @@ build
 exampleSaves
 romfs
 
-demon_sprites
-scripts/*.jpeg
+other_stuff/demon_sprites
+other_stuff/scripts/*.jpeg

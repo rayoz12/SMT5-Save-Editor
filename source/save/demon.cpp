@@ -26,13 +26,13 @@ namespace editor::save
         magic_item =        saveInterface.get2Bytes(offset + (11 * 2));
         agility_item =      saveInterface.get2Bytes(offset + (12 * 2));
         luck_item =         saveInterface.get2Bytes(offset + (13 * 2));
-        hp_combined =       saveInterface.get2Bytes(offset + (14 * 2));
-        mp_combined =       saveInterface.get2Bytes(offset + (15 * 2));
-        strength_combined = saveInterface.get2Bytes(offset + (16 * 2));
-        vitality_combined = saveInterface.get2Bytes(offset + (17 * 2));
-        magic_combined =    saveInterface.get2Bytes(offset + (18 * 2));
-        agility_combined =  saveInterface.get2Bytes(offset + (19 * 2));
-        luck_combined =     saveInterface.get2Bytes(offset + (20 * 2));
+        hp_combined =       saveInterface.get2Bytes(offset + (16 * 2));
+        mp_combined =       saveInterface.get2Bytes(offset + (17 * 2));
+        strength_combined = saveInterface.get2Bytes(offset + (18 * 2));
+        vitality_combined = saveInterface.get2Bytes(offset + (19 * 2));
+        magic_combined =    saveInterface.get2Bytes(offset + (20 * 2));
+        agility_combined =  saveInterface.get2Bytes(offset + (21 * 2));
+        luck_combined =     saveInterface.get2Bytes(offset + (22 * 2));
 
         long generalOffset = offset + 70; // +0x46
         experience = saveInterface.get4Bytes(generalOffset);
@@ -58,6 +58,9 @@ namespace editor::save
         potential_healing   = saveInterface.get2BytesSigned(potentialOffset + (9 * 2));
         potential_support   = saveInterface.get2BytesSigned(potentialOffset + (10 * 2));
 
+        name = demonDB.getName(id);
+        race = demonDB.getRace(id);
+
     }
 
     void Demon::save() {
@@ -77,13 +80,13 @@ namespace editor::save
         saveInterface.put2Bytes(statOffset + (11 * 2), magic_item);
         saveInterface.put2Bytes(statOffset + (12 * 2), agility_item);
         saveInterface.put2Bytes(statOffset + (13 * 2), luck_item);
-        saveInterface.put2Bytes(statOffset + (14 * 2), hp_combined);
-        saveInterface.put2Bytes(statOffset + (15 * 2), mp_combined);
-        saveInterface.put2Bytes(statOffset + (16 * 2), strength_combined);
-        saveInterface.put2Bytes(statOffset + (17 * 2), vitality_combined);
-        saveInterface.put2Bytes(statOffset + (18 * 2), magic_combined);
-        saveInterface.put2Bytes(statOffset + (19 * 2), agility_combined);
-        saveInterface.put2Bytes(statOffset + (20 * 2), luck_combined);
+        saveInterface.put2Bytes(statOffset + (16 * 2), hp_combined);
+        saveInterface.put2Bytes(statOffset + (17 * 2), mp_combined);
+        saveInterface.put2Bytes(statOffset + (18 * 2), strength_combined);
+        saveInterface.put2Bytes(statOffset + (19 * 2), vitality_combined);
+        saveInterface.put2Bytes(statOffset + (20 * 2), magic_combined);
+        saveInterface.put2Bytes(statOffset + (21 * 2), agility_combined);
+        saveInterface.put2Bytes(statOffset + (22 * 2), luck_combined);
 
         long generalOffset = selfOffset + 70; // +0x46
         saveInterface.put4Bytes(generalOffset, experience);

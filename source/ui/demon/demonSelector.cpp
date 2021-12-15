@@ -67,8 +67,10 @@ namespace editor::ui {
         // //std::cout << "OnInput\n";
         if ((Down & HidNpadButton_A)) {
             auto idx = this->generalMenu->GetSelectedIndex();
-            auto offset = demonOffsets[idx];
-            refreshMenuItems();
+            auto offset = menuOffsets[idx];
+            globalState.demon = save::Demon(offset);
+            mainApp->loadDemonEditor();
+            // refreshMenuItems();
         }
         else if (Down & HidNpadButton_Right) {
             auto idx = this->generalMenu->GetSelectedIndex();
@@ -95,10 +97,16 @@ namespace editor::ui {
             // Get the ID
             uint16_t id = saveInterface.get2Bytes(offset + 82);
             std::string name = demonDB.getName(id);
+            if (name.find("Unknown") != std::string::npos) {
+                // Add the HP and MP for identification
+                auto mp = saveInterface.get2Bytes(offset + 2);
+                name += ", HP: " + std::to_string(hp) + ", MP: " + std::to_string(mp);
+            }
 
             auto demonItem = pu::ui::elm::MenuItem::New(name);
             demonItem->SetColor(COLOR("#FFFFFFFF"));
             this->generalMenu->AddItem(demonItem);
+            this->menuOffsets.push_back(offset);
 
         }
         

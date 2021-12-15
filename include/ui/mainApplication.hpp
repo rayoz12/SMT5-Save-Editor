@@ -10,14 +10,24 @@
 #include "ui/SaveEditorItems.hpp"
 #include "ui/demon/demonSelector.hpp"
 
+#include "ui/demon/demonMain.hpp"
+#include "ui/demon/demonStats.hpp"
+
 // Define your application (can't instantiate base class, so need to make a derived one)
 namespace editor::ui
 {
-    enum Pages {
+    enum class Pages {
         General,
         Player,
         Items,
         Demons
+    };
+    
+    enum class DemonPages {
+        General,
+        Stats,
+        Skill_Potential,
+        Skills
     };
 
     class MainApplication : public pu::ui::Application
@@ -36,6 +46,13 @@ namespace editor::ui
             void nextPage();
             void previousPage();
 
+            bool isInDemonEditMode = false;
+            DemonPages currentDemonPage = DemonPages::General;
+            void loadDemonPage(DemonPages page);
+            void loadDemonEditor();
+
+
+
             void loadSave();
             void writeSave();
 
@@ -48,5 +65,7 @@ namespace editor::ui
             SaveEditorItemLayout::Ref saveEditorItemLayout;
             DemonSelectorLayout::Ref demonSelectorLayout;
             
+            DemonMainLayout::Ref demonMainLayout;
+            DemonStatsLayout::Ref demonStatsLayout;
     };    
 } // namespace editor::ui

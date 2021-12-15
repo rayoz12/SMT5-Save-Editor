@@ -16,12 +16,12 @@ Supports:
 4. Press `+` to apply your changes
 6. Play your hacked game
 
-![1](screenshots/1.jpg)
-![2](screenshots/2.jpg)
-![3](screenshots/3.jpg)
-![4](screenshots/4.jpg)
-![4](screenshots/4.jpg)
-![5](screenshots/5.jpg)
+![1](other_stuff/screenshots/1.jpg)
+![2](other_stuff/screenshots/2.jpg)
+![3](other_stuff/screenshots/3.jpg)
+![4](other_stuff/screenshots/4.jpg)
+![4](other_stuff/screenshots/4.jpg)
+![5](other_stuff/screenshots/5.jpg)
 
 
 # Credits
@@ -32,6 +32,8 @@ Supports:
     - https://docs.google.com/spreadsheets/d/1poQgijkzhdIOyKthD9kpiW1ZVC2Qr-eomUE0tCOJ2KE/edit#gid=480151356
 - Everyone @ SMTV Discord Server
     - For literally all of the offsets
+- https://github.com/XorTroll/Plutonium
+    - awesome UI framework
 - https://github.com/FlagBrew/Checkpoint
     - Accounts and Save Loading
 

@@ -166,6 +166,8 @@ namespace editor::ui {
                 else {
                     printf("Unknown Index!\n");
                 }
+                this->saveMenu->SetSelectedIndex(0);
+                
                 loadSavesFromTitleID();
                 isInRegionSelectMode = false;
                 title->SetText("SMT 5 Save Editor - Select a Save File");

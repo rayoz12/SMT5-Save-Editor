@@ -20,13 +20,19 @@ namespace editor::ui {
         this->saveEditorGeneralLayout = SaveEditorGeneralLayout::New();
         this->saveEditorPlayerLayout = SaveEditorPlayerLayout::New();
         this->saveEditorItemLayout = SaveEditorItemLayout::New();
+        
         this->demonSelectorLayout = DemonSelectorLayout::New();
+        this->demonMainLayout = DemonMainLayout::New();
+        this->demonStatsLayout = DemonStatsLayout::New();
 
         this->saveSelectorLayout->SetOnInput(std::bind(&SaveSelectorLayout::onInput, this->saveSelectorLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
         this->saveEditorGeneralLayout->SetOnInput(std::bind(&SaveEditorGeneralLayout::onInput, this->saveEditorGeneralLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
         this->saveEditorPlayerLayout->SetOnInput(std::bind(&SaveEditorPlayerLayout::onInput, this->saveEditorPlayerLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
         this->saveEditorItemLayout->SetOnInput(std::bind(&SaveEditorItemLayout::onInput, this->saveEditorItemLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
+        
         this->demonSelectorLayout->SetOnInput(std::bind(&DemonSelectorLayout::onInput, this->demonSelectorLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
+        this->demonMainLayout->SetOnInput(std::bind(&DemonMainLayout::onInput, this->demonMainLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
+        this->demonStatsLayout->SetOnInput(std::bind(&DemonStatsLayout::onInput, this->demonStatsLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
     }
 
     void MainApplication::loadPage(Pages page) {
@@ -61,42 +67,70 @@ namespace editor::ui {
     }
 
     void MainApplication::nextPage() {
-        switch (currentPage)
-        {
-        case Pages::General:
-            this->loadPage(Pages::Player);
-            break;
-        case Pages::Player:
-            this->loadPage(Pages::Items);
-            break;
-        case Pages::Items:
-            this->loadPage(Pages::Demons);
-            break;
-        case Pages::Demons:        
-        default:
-            printf("Page not Implemented");
-            break;
+
+        if (!isInDemonEditMode) {
+            if (currentPage == Pages::Demons) {
+                return;
+            }
+            this->loadPage(static_cast<Pages>(static_cast<int>(currentPage) + 1));
+        }
+        else {
+            if (currentDemonPage == DemonPages::Skills) {
+                return;
+            }
+            this->loadDemonPage(static_cast<DemonPages>(static_cast<int>(currentDemonPage) + 1));
         }
     }
 
     void MainApplication::previousPage() {
-        switch (currentPage)
+        if (!isInDemonEditMode) {
+            if (currentPage == Pages::General) {
+                return;
+            }
+            this->loadPage(static_cast<Pages>(static_cast<int>(currentPage) - 1));
+        }
+        else {
+            if (currentDemonPage == DemonPages::General) {
+                return;
+            }
+            this->loadDemonPage(static_cast<DemonPages>(static_cast<int>(currentDemonPage) - 1));
+        }
+    }
+
+    void MainApplication::loadDemonPage(DemonPages page) {
+        switch (page)
         {
-        case Pages::General:
+        case DemonPages::General:
+            this->demonMainLayout->initialiseFromSave();
+            this->LoadLayout(this->demonMainLayout);
+            currentDemonPage = page;
             break;
-        case Pages::Player:
-            this->loadPage(Pages::General);
+        case DemonPages::Stats:
+            this->demonStatsLayout->initialiseFromSave();
+            this->LoadLayout(this->demonStatsLayout);
+            currentDemonPage = page;
             break;
-        case Pages::Items:
-            this->loadPage(Pages::Player);
-            break;
-        case Pages::Demons: 
-            this->loadPage(Pages::Items);
-            break;      
+        case DemonPages::Skill_Potential:
+            // this->saveEditorItemLayout->initialiseFromSave();
+            // this->LoadLayout(this->saveEditorItemLayout);
+            // currentPage = page;
+            // break;
+        case DemonPages::Skills:
+            // this->demonSelectorLayout->initialiseFromSave();
+            // this->LoadLayout(this->demonSelectorLayout);
+            // currentPage = page;
+            // break;     
         default:
-            printf("Page not Implemented");
+            printf("Page not Implemented\n");
             break;
         }
+
+        // currentPage = page;
+    }
+
+    void MainApplication::loadDemonEditor() {
+        isInDemonEditMode = true;
+        loadDemonPage(DemonPages::General);
     }
 
     void MainApplication::loadSave() {

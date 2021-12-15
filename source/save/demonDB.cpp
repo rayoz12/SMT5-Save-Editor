@@ -59,4 +59,13 @@ namespace editor::save::demon
             return std::string("#! Unknown please report this as a Github Issue! ID: ") + std::to_string(id);
         }
     }
+
+    std::string DemonDB::getRace(uint16_t id) {
+        if ( database.find(id) != database.end() ) {
+            auto demonEntry = database.at(id);
+            return demonEntry.race;
+        } else {
+            return std::string("#! Unknown please report this as a Github Issue! ID: ") + std::to_string(id);
+        }
+    }
 } // namespace editor::save::demon

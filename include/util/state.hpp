@@ -2,8 +2,11 @@
 
 // Glorified Global Variable
 
+#include "save/demon.hpp"
+
 #include <string>
 #include <vector>
+#include <optional>
 
 namespace editor::state
 {
@@ -14,6 +17,10 @@ namespace editor::state
 
         // Decrypted(!) Save Data 
         std::vector<uint8_t> saveData;
+
+        // Reference for Demon that's being edited right now.
+        std::optional<editor::save::Demon> demon;
+        
     };
 } // namespace editor::state
 
