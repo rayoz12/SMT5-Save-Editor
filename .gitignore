@@ -37,7 +37,6 @@
 .vscode
 build
 exampleSaves
-romfs
 
 other_stuff/demon_sprites
 other_stuff/scripts/*.jpeg

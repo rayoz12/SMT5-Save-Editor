@@ -18,10 +18,12 @@ namespace editor::crypto
         destFilePtr = fopen(destPath.c_str(), "wb");  // Open the file in binary mode
         
         if (srcFilePtr == NULL || destFilePtr == NULL) {
+            printf("copy: Failed to open files!\n");
             return errno;
         }
         err = fseek(srcFilePtr, 0, SEEK_END);          // Jump to the end of the file
         if (err < 0) {
+            printf("copy: Failed to seek file!\n");
             fclose(srcFilePtr);
             fclose(destFilePtr);
             return errno;
@@ -94,14 +96,18 @@ namespace editor::crypto
             // printf("File: %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X \n", fileData[i], fileData[i+1], fileData[i+2], fileData[i+3], fileData[i+4], fileData[i+5], fileData[i+6], fileData[i+7], fileData[i+8], fileData[i+9], fileData[i+10], fileData[i+11], fileData[i+12], fileData[i+13], fileData[i+14], fileData[i+15]);
         }
 
-        int err;
+
+        int err = backupSave(filePath);
+        if (err != 0) {
+            printf("Failed to backup file!");
+            return -1;
+        }
+
         FILE *fileptr;
         fileptr = fopen(filePath.c_str(), "wb");  // Open the file in binary mode
         if (fileptr == NULL) {
             return errno;
         }
-
-        backupSave(filePath);
         
         fwrite(fileData, filelen, 1, fileptr);
         fflush(fileptr);

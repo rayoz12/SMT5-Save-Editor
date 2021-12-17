@@ -45,7 +45,7 @@ namespace editor::save
             skills.push_back(saveInterface.get2Bytes(skillsOffset + (i * 8)));
         }
 
-        long potentialOffset = offset + 286; // +0x128
+        long potentialOffset = offset + 296; // +0x128
         potential_physical  = saveInterface.get2BytesSigned(potentialOffset);
         potential_fire      = saveInterface.get2BytesSigned(potentialOffset + (1 * 2));
         potential_ice       = saveInterface.get2BytesSigned(potentialOffset + (2 * 2));
@@ -99,8 +99,7 @@ namespace editor::save
             saveInterface.put2Bytes(skillsOffset + (i * 8), skills[i]);
         }
 
-        long potentialOffset = selfOffset + 286; // +0x128
-
+        long potentialOffset = selfOffset + 296; // +0x128
         saveInterface.put2BytesSigned(potentialOffset, potential_physical);
         saveInterface.put2BytesSigned(potentialOffset + (1 * 2), potential_fire);
         saveInterface.put2BytesSigned(potentialOffset + (2 * 2), potential_ice);

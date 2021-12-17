@@ -1,0 +1,803 @@
+[
+    {
+      "id": 7,
+      "hex_id": "0x0007",
+      "name": "Khonsu",
+      "image": "khonsu.jpeg"
+    },
+    {
+      "id": 8,
+      "hex_id": "0x0008",
+      "name": "Zeus",
+      "image": "zeus.jpeg"
+    },
+    {
+      "id": 9,
+      "hex_id": "0x0009",
+      "name": "Odin",
+      "image": "odin.jpeg"
+    },
+    {
+      "id": 11,
+      "hex_id": "0x000B",
+      "name": "Mitra",
+      "image": "mitra.jpeg"
+    },
+    {
+      "id": 12,
+      "hex_id": "0x000C",
+      "name": "Atavaka",
+      "race": "Deity",
+      "image": "atavaka.jpeg"
+    },
+    {
+      "id": 13,
+      "hex_id": "0x000D",
+      "name": "Horus",
+      "race": "Deity",
+      "image": "horus.jpeg"
+    },
+    {
+      "id": 14,
+      "hex_id": "0x000E",
+      "name": "Thoth",
+      "race": "Deity",
+      "image": "thoth.jpeg"
+    },
+    {
+      "id": 15,
+      "hex_id": "0x000F",
+      "name": "Khonsu Ra",
+      "image": "khonsu_ra.jpeg"
+    },
+    {
+      "id": 16,
+      "hex_id": "0x0010",
+      "name": "Vishnu",
+      "race": "Deity",
+      "image": "vishnu.jpeg"
+    },
+    {
+      "id": 17,
+      "hex_id": "0x0011",
+      "name": "Baal",
+      "image": "baal.jpeg"
+    },
+    {
+      "id": 19,
+      "hex_id": "0x0013",
+      "name": "Demeter",
+      "race": "Megami",
+      "image": "demeter.jpeg"
+    },
+    {
+      "id": 20,
+      "hex_id": "0x0014",
+      "name": "Anahita",
+      "image": "anahita.jpeg"
+    },
+    {
+      "id": 21,
+      "hex_id": "0x0015",
+      "name": "Lakshmi",
+      "race": "Megami",
+      "image": "lakshmi.jpeg"
+    },
+    {
+      "id": 22,
+      "hex_id": "0x0016",
+      "name": "Norn",
+      "image": "norn.jpeg",
+      "race": "Megami"
+    },
+    {
+      "id": 23,
+      "hex_id": "0x0017",
+      "name": "Idun",
+      "image": "idun.jpeg"
+    },
+    {
+      "id": 24,
+      "hex_id": "0x0018",
+      "name": "Sarasvati",
+      "race": "Megami",
+      "image": "sarasvati.jpeg"
+    },
+    {
+      "id": 25,
+      "hex_id": "0x0019",
+      "name": "Ishtar",
+      "image": "ishtar.jpeg"
+    },
+    {
+      "id": 26,
+      "hex_id": "0x001A",
+      "name": "Scathach",
+      "race": "Megami",
+      "image": "scathach.jpeg"
+    },
+    {
+      "id": 27,
+      "hex_id": "0x001B",
+      "name": "Parvarti",
+      "image": "parvarti.jpeg"
+    },
+    {
+      "id": 28,
+      "hex_id": "0x001C",
+      "name": "Ame No Uzume",
+      "image": "ame_no_uzume.jpeg"
+    },
+    {
+      "id": 29,
+      "hex_id": "0x001D",
+      "name": "Fortuna",
+      "race": "Megami",
+      "image": "fortuna.jpeg"
+    },
+    {
+      "id": 30,
+      "hex_id": "0x001E",
+      "name": "Maria",
+      "race": "Megami",
+      "image": "maria.jpeg"
+    },
+    {
+      "id": 31,
+      "hex_id": "0x001F",
+      "name": "Artemis",
+      "image": "artemis.jpeg"
+    },
+    {
+      "id": 34,
+      "hex_id": "0x0022",
+      "name": "Hanuman",
+      "image": "hanuman.jpeg"
+    },
+    {
+      "id": 35,
+      "hex_id": "0x0023",
+      "name": "Fionn Mac Cumhaill",
+      "image": "fionn_mac_cumhaill.jpeg"
+    },
+    {
+      "id": 36,
+      "hex_id": "0x0024",
+      "name": "Cu Chulainn",
+      "image": "cu_chulainn.jpeg"
+    },
+    {
+      "id": 37,
+      "hex_id": "0x0025",
+      "name": "Kurama Tengu",
+      "image": "kurama_tengu.jpeg",
+      "race": "Genma"
+    },
+    {
+      "id": 38,
+      "hex_id": "0x0026",
+      "name": "Amanozako",
+      "image": "amanozako.jpeg"
+    },
+    {
+      "id": 42,
+      "hex_id": "0x002A",
+      "name": "Koppa Tengu",
+      "image": "koppa_tengu.jpeg"
+    },
+    {
+      "id": 43,
+      "hex_id": "0x002B",
+      "name": "Apsaras",
+      "race": "Megami",
+      "image": "apsaras.jpeg"
+    },
+    {
+      "id": 44,
+      "hex_id": "0x002C",
+      "name": "Agathion",
+      "race": "Yoma",
+      "image": "agathion.jpeg"
+    },
+    {
+      "id": 45,
+      "hex_id": "0x002D",
+      "name": "Mandrake",
+      "race": "Yoma",
+      "image": "mandrake.jpeg"
+    },
+    {
+      "id": 51,
+      "hex_id": "0x0033",
+      "name": "Titania",
+      "race": "Fairy",
+      "image": "titania.jpeg"
+    },
+    {
+      "id": 52,
+      "hex_id": "0x0034",
+      "name": "Oberon",
+      "race": "Fairy",
+      "image": "oberon.jpeg"
+    },
+    {
+      "id": 53,
+      "hex_id": "0x0035",
+      "name": "Silky",
+      "race": "Fairy",
+      "image": "silky.jpeg"
+    },
+    {
+      "id": 71,
+      "hex_id": "0x047",
+      "name": "Lilith",
+      "image": "lilith.jpeg",
+      "race": "Night"
+    },
+    {
+      "id": 72,
+      "hex_id": "0x048",
+      "name": "Black Frost",
+      "image": "black_frost.jpeg",
+      "race": "Night"
+    },
+    {
+      "id": 76,
+      "hex_id": "0x004C",
+      "name": "Amon",
+      "race": "Tyrant",
+      "image": "amon.jpeg"
+    },
+    {
+      "id": 78,
+      "hex_id": "0x004E",
+      "name": "Mephisto",
+      "image": "mephisto.jpeg"
+    },
+    {
+      "id": 79,
+      "hex_id": "0x004F",
+      "name": "Chi You",
+      "image": "chi_you.jpeg"
+    },
+    {
+      "id": 80,
+      "hex_id": "0x0050",
+      "name": "Surt",
+      "image": "surt.jpeg",
+      "race": "Tyrant"
+    },
+    {
+      "id": 81,
+      "hex_id": "0x0051",
+      "name": "Beelzebub",
+      "image": "beelzebub.jpeg"
+    },
+    {
+      "id": 82,
+      "hex_id": "0x0052",
+      "name": "Arioch",
+      "image": "arioch.jpeg"
+    },
+    {
+      "id": 85,
+      "hex_id": "0x0055",
+      "name": "Moloch",
+      "image": "moloch.jpeg"
+    },
+    {
+      "id": 89,
+      "hex_id": "0x0059",
+      "name": "Loki",
+      "image": "loki.jpeg",
+      "race": "Tyrant"
+    },
+    {
+      "id": 111,
+      "hex_id": "0x006F",
+      "name": "Vasuki",
+      "image": "vasuki.jpeg"
+    },
+    {
+      "id": 115,
+      "hex_id": "0x0073",
+      "name": "Hydra",
+      "image": "hydra.jpeg"
+    },
+    {
+      "id": 116,
+      "hex_id": "0x0074",
+      "name": "Fafnir",
+      "race": "Drake",
+      "image": "fafnir.jpeg"
+    },
+    {
+      "id": 120,
+      "hex_id": "0x078",
+      "name": "Anubis",
+      "image": "anubis.jpeg",
+      "race": "Avatar"
+    },
+    {
+      "id": 183,
+      "hex_id": "0x0B7",
+      "name": "Dionysus",
+      "image": "dionysus.jpeg",
+      "race": "Fury"
+    },
+    {
+      "id": 197,
+      "hex_id": "0x00C5",
+      "name": "Nuwa",
+      "image": "nuwa.jpeg"
+    },
+    {
+      "id": 202,
+      "hex_id": "0x00CA",
+      "name": "Attis",
+      "race": "Kishin",
+      "image": "attis.jpeg"
+    },
+    {
+      "id": 203,
+      "hex_id": "0x00CB",
+      "name": "Bishamonten",
+      "race": "Kishin",
+      "image": "bishamonten.jpeg"
+    },
+    {
+      "id": 204,
+      "hex_id": "0x00CC",
+      "name": "Jikokuten",
+      "race": "Kishin",
+      "image": "jikokuten.jpeg"
+    },
+    {
+      "id": 205,
+      "hex_id": "0x00CD",
+      "name": "Koumokoute",
+      "image": "koumokoute.jpeg"
+    },
+    {
+      "id": 206,
+      "hex_id": "0x00CE",
+      "name": "Zouchouten",
+      "race": "Kishin",
+      "image": "zouchouten.jpeg"
+    },
+    {
+      "id": 211,
+      "hex_id": "0x00D3",
+      "name": "Arahabaki",
+      "image": "arahabaki.jpeg"
+    },
+    {
+      "id": 212,
+      "hex_id": "0x00D4",
+      "name": "Oyamatsumi",
+      "image": "oyamatsumi.jpeg",
+      "race": "Kunitsu"
+    },
+    {
+      "id": 213,
+      "hex_id": "0x00D5",
+      "name": "Kushinada Hime",
+      "image": "kushinada_hime.jpeg"
+    },
+    {
+      "id": 214,
+      "hex_id": "0x00D6",
+      "name": "Sukuna Hikona",
+      "image": "sukuna_hikona.jpeg"
+    },
+    {
+      "id": 215,
+      "hex_id": "0x00D7",
+      "name": "Okuninushi",
+      "image": "okuninushi.jpeg"
+    },
+    {
+      "id": 216,
+      "hex_id": "0x00D8",
+      "name": "Take Minakata",
+      "image": "take_minakata.jpeg"
+    },
+    {
+      "id": 232,
+      "hex_id": "0x00E8",
+      "name": "Grimekhala",
+      "image": "grimekhala.jpeg"
+    },
+    {
+      "id": 233,
+      "hex_id": "0x00E9",
+      "name": "Pazuzu",
+      "image": "pazuzu.jpeg"
+    },
+    {
+      "id": 234,
+      "hex_id": "0x00EA",
+      "name": "Mishaguji",
+      "image": "mishaguji.jpeg",
+      "race": "Vile"
+    },
+    {
+      "id": 242,
+      "hex_id": "0x00F2",
+      "name": "Michael",
+      "image": "michael.jpeg"
+    },
+    {
+      "id": 249,
+      "hex_id": "0x00F9",
+      "name": "Melchizedek",
+      "image": "melchizedek.jpeg",
+      "race": "Herald"
+    },
+    {
+      "id": 254,
+      "hex_id": "0x0FE",
+      "name": "Throne",
+      "image": "throne.jpeg",
+      "race": "Divine"
+    },
+    {
+      "id": 256,
+      "hex_id": "0x0100",
+      "name": "Power",
+      "image": "power.jpeg",
+      "race": "Divine"
+    },
+    {
+      "id": 257,
+      "hex_id": "0x0101",
+      "name": "Principality",
+      "race": "Divine",
+      "image": "principality.jpeg"
+    },
+    {
+      "id": 258,
+      "hex_id": "0x0102",
+      "name": "Archangel",
+      "race": "Divine",
+      "image": "archangel.jpeg"
+    },
+    {
+      "id": 259,
+      "hex_id": "0x0103",
+      "name": "Angel",
+      "image": "angel.jpeg"
+    },
+    {
+      "id": 272,
+      "hex_id": "0x0110",
+      "name": "Andras",
+      "race": "Fallen",
+      "image": "andras.jpeg"
+    },
+    {
+      "id": 278,
+      "hex_id": "0x0116",
+      "name": "Garuda",
+      "race": "Avian",
+      "image": "garuda.jpeg"
+    },
+    {
+      "id": 279,
+      "hex_id": "0x0117",
+      "name": "Zhuque",
+      "image": "zhuque.jpeg"
+    },
+    {
+      "id": 280,
+      "hex_id": "0x0118",
+      "name": "Yatagarasu",
+      "race": "Avian",
+      "image": "yatagarasu.jpeg"
+    },
+    {
+      "id": 282,
+      "hex_id": "0x011A",
+      "name": "Feng Huang",
+      "image": "feng_huang.jpeg"
+    },
+    {
+      "id": 287,
+      "hex_id": "0x011F",
+      "name": "Anzu",
+      "race": "Raptor",
+      "image": "anzu.jpeg"
+    },
+    {
+      "id": 295,
+      "hex_id": "0x0127",
+      "name": "Cleopatra",
+      "image": "cleopatra.jpeg"
+    },
+    {
+      "id": 296,
+      "hex_id": "0x0128",
+      "name": "Rangda",
+      "race": "Femme",
+      "image": "rangda.jpeg"
+    },
+    {
+      "id": 297,
+      "hex_id": "0x0129",
+      "name": "Dakini",
+      "race": "Femme",
+      "image": "dakini.jpeg"
+    },
+    {
+      "id": 298,
+      "hex_id": "0x012A",
+      "name": "Atropos",
+      "race": "Femme",
+      "image": "atropos.jpeg"
+    },
+    {
+      "id": 299,
+      "hex_id": "0x012B",
+      "name": "Yaksini",
+      "race": "Femme",
+      "image": "yaksini.jpeg"
+    },
+    {
+      "id": 300,
+      "hex_id": "0x012C",
+      "name": "Lachesis",
+      "race": "Femme",
+      "image": "lachesis.jpeg"
+    },
+    {
+      "id": 301,
+      "hex_id": "0x012D",
+      "name": "Clotho",
+      "image": "clotho.jpeg"
+    },
+    {
+      "id": 302,
+      "hex_id": "0x012E",
+      "name": "Manananggal",
+      "image": "manananggal.jpeg"
+    },
+    {
+      "id": 303,
+      "hex_id": "0x012F",
+      "name": "Lamia",
+      "race": "Femme",
+      "image": "lamia.jpeg"
+    },
+    {
+      "id": 304,
+      "hex_id": "0x0130",
+      "name": "Mermaid",
+      "image": "mermaid.jpeg"
+    },
+    {
+      "id": 305,
+      "hex_id": "0x0131",
+      "name": "Leanne Sidhe",
+      "image": "leanne_sidhe.jpeg"
+    },
+    {
+      "id": 310,
+      "hex_id": "0x0136",
+      "name": "Ongyo Ki",
+      "image": "ongyo_ki.jpeg"
+    },
+    {
+      "id": 311,
+      "hex_id": "0x0137",
+      "name": "Shiki Ouji",
+      "image": "shiki_ouji.jpeg"
+    },
+    {
+      "id": 319,
+      "hex_id": "0x013F",
+      "name": "Null",
+      "image": "null.jpeg"
+    },
+    {
+      "id": 322,
+      "hex_id": "0x0142",
+      "name": "Hecatoncheires",
+      "image": "hecatoncheires.jpeg"
+    },
+    {
+      "id": 335,
+      "hex_id": "0x014F",
+      "name": "Sudama",
+      "race": "Jirae",
+      "image": "sudama.jpeg"
+    },
+    {
+      "id": 342,
+      "hex_id": "0x0156",
+      "name": "Kumbhanda",
+      "image": "kumbhanda.jpeg",
+      "race": "Haunt"
+    },
+    {
+      "id": 350,
+      "hex_id": "0x015E",
+      "name": "Trumpeter",
+      "image": "trumpeter.jpeg"
+    },
+    {
+      "id": 355,
+      "hex_id": "0x0163",
+      "name": "Alice",
+      "image": "alice.jpeg"
+    },
+    {
+      "id": 365,
+      "hex_id": "0x016D",
+      "name": "Tao",
+      "image": "tao.jpeg",
+      "race": "Panagia"
+    },
+    {
+      "id": 375,
+      "hex_id": "0x0177",
+      "name": "Nigi Mitama",
+      "image": "nigi_mitama.jpeg"
+    },
+    {
+      "id": 400,
+      "hex_id": "0x0190",
+      "name": "Hayataro",
+      "image": "hayataro.jpeg"
+    },
+    {
+      "id": 420,
+      "hex_id": "0x01A4",
+      "name": "Null",
+      "image": "null.jpeg"
+    },
+    {
+      "id": 516,
+      "hex_id": "0x0204",
+      "name": "Khonsu",
+      "image": "khonsu.jpeg"
+    },
+    {
+      "id": 517,
+      "hex_id": "0x0205",
+      "name": "Anubis",
+      "race": "Avatar",
+      "image": "anubis.jpeg"
+    },
+    {
+      "id": 518,
+      "hex_id": "0x0206",
+      "name": "Khonsu Ra",
+      "image": "khonsu_ra.jpeg"
+    },
+    {
+      "id": 520,
+      "hex_id": "0x0208",
+      "name": "Nuwa",
+      "image": "nuwa.jpeg"
+    },
+    {
+      "id": 521,
+      "hex_id": "0x0209",
+      "name": "Thunderbit",
+      "image": "thunderbit.jpeg"
+    },
+    {
+      "id": 522,
+      "hex_id": "0x020A",
+      "name": "Thunderbit",
+      "image": "thunderbit.jpeg"
+    },
+    {
+      "id": 523,
+      "hex_id": "0x020B",
+      "name": "Thunderbit",
+      "image": "thunderbit.jpeg"
+    },
+    {
+      "id": 524,
+      "hex_id": "0x020C",
+      "name": "Thunderbit",
+      "image": "thunderbit.jpeg"
+    },
+    {
+      "id": 525,
+      "hex_id": "0x020D",
+      "name": "Abdiel",
+      "image": "abdiel.jpeg"
+    },
+    {
+      "id": 526,
+      "hex_id": "0x020E",
+      "name": "Depraved Arms",
+      "image": "depraved_arms.jpeg"
+    },
+    {
+      "id": 527,
+      "hex_id": "0x020F",
+      "name": "Depraved Arms",
+      "image": "depraved_arms.jpeg"
+    },
+    {
+      "id": 528,
+      "hex_id": "0x0210",
+      "name": "Tsukuyomi",
+      "image": "tsukuyomi.jpeg"
+    },
+    {
+      "id": 529,
+      "hex_id": "0x0211",
+      "name": "Lucifer Gold",
+      "image": "lucifer_gold.jpeg"
+    },
+    {
+      "id": 530,
+      "hex_id": "0x0212",
+      "name": "Tsukuyomi",
+      "image": "tsukuyomi.jpeg"
+    },
+    {
+      "id": 531,
+      "hex_id": "0x0213",
+      "name": "Brimstone Star",
+      "image": "brimstone_star.jpeg"
+    },
+    {
+      "id": 532,
+      "hex_id": "0x0214",
+      "name": "Cocytus Star",
+      "image": "cocytus_star.jpeg"
+    },
+    {
+      "id": 533,
+      "hex_id": "0x0215",
+      "name": "Morningstar",
+      "image": "morningstar.jpeg"
+    },
+    {
+      "id": 534,
+      "hex_id": "0x0216",
+      "name": "Lucifer Black",
+      "image": "lucifer_black.jpeg"
+    },
+    {
+      "id": 535,
+      "hex_id": "0x0217",
+      "name": "Lucifer White",
+      "image": "lucifer_white.jpeg"
+    },
+    {
+      "id": 536,
+      "hex_id": "0x0218",
+      "name": "Demifiend",
+      "image": "demifiend.jpeg"
+    },
+    {
+      "id": 538,
+      "hex_id": "0x021A",
+      "name": "Brimstone Star",
+      "image": "brimstone_star.jpeg"
+    },
+    {
+      "id": 539,
+      "hex_id": "0x021B",
+      "name": "Cocytus Star",
+      "image": "cocytus_star.jpeg"
+    },
+    {
+      "id": 540,
+      "hex_id": "0x021C",
+      "name": "Tsukuyomi",
+      "image": "tsukuyomi.jpeg"
+    },
+    {
+      "id": 541,
+      "hex_id": "0x021D",
+      "name": "Null",
+      "image": "null.jpeg"
+    }
+  ]

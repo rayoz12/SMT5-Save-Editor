@@ -39,7 +39,7 @@ namespace editor::ui {
         this->generalSectionText->SetColor(COLOR("#FFFFFFFF"));
         this->statsSectionText = pu::ui::elm::TextBlock::New(200, 50, "Stats");
         this->statsSectionText->SetColor(COLOR("#FFFFFFFF"));
-        this->potentialSectionText = pu::ui::elm::TextBlock::New(400, 50, "Skills Potential");
+        this->potentialSectionText = pu::ui::elm::TextBlock::New(400, 50, "Skill Potential");
         this->potentialSectionText->SetColor(COLOR("#FFFFFFFF"));
         this->skillsSectionText = pu::ui::elm::TextBlock::New(600, 50, "Skills");
         this->skillsSectionText->SetColor(COLOR("#FFFFFFFF"));

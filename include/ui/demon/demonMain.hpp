@@ -30,28 +30,5 @@ namespace editor::ui {
 
 
         private:
-
-            // Demon Info
-            pu::ui::elm::TextBlock::Ref levelText;
-            pu::ui::elm::TextBlock::Ref raceText;
-            pu::ui::elm::TextBlock::Ref nameText;
-
-            pu::ui::elm::TextBlock::Ref expText;
-            pu::ui::elm::TextBlock::Ref hpText;
-            pu::ui::elm::TextBlock::Ref mpText;
-            
-            pu::ui::elm::TextBlock::Ref physText;
-            pu::ui::elm::TextBlock::Ref fireText;
-            pu::ui::elm::TextBlock::Ref iceText;
-            pu::ui::elm::TextBlock::Ref elecText;
-            pu::ui::elm::TextBlock::Ref forceText;
-            pu::ui::elm::TextBlock::Ref lightText;
-            pu::ui::elm::TextBlock::Ref darkText;
-
-            pu::ui::elm::TextBlock::Ref strengthText;
-            pu::ui::elm::TextBlock::Ref vitalityText;
-            pu::ui::elm::TextBlock::Ref magicText;
-            pu::ui::elm::TextBlock::Ref agilityText;
-            pu::ui::elm::TextBlock::Ref luckText;
     };
 }

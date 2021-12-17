@@ -12,6 +12,8 @@
 
 #include "ui/demon/demonMain.hpp"
 #include "ui/demon/demonStats.hpp"
+#include "ui/demon/demonSkillPotential.hpp"
+#include "ui/demon/demonSkills.hpp"
 
 // Define your application (can't instantiate base class, so need to make a derived one)
 namespace editor::ui
@@ -50,6 +52,7 @@ namespace editor::ui
             DemonPages currentDemonPage = DemonPages::General;
             void loadDemonPage(DemonPages page);
             void loadDemonEditor();
+            void exitDemonEditor();
 
 
 
@@ -67,5 +70,7 @@ namespace editor::ui
             
             DemonMainLayout::Ref demonMainLayout;
             DemonStatsLayout::Ref demonStatsLayout;
+            DemonSkillPotentialLayout::Ref demonSkillsPotentialLayout;
+            DemonSkillsLayout::Ref demonSkillsLayout;
     };    
 } // namespace editor::ui

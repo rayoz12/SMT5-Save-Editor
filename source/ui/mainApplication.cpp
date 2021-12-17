@@ -16,6 +16,7 @@ namespace editor::ui {
     MainApplication *mainApp;
 
     void MainApplication::createPages() {
+        // Initialise
         this->saveSelectorLayout = SaveSelectorLayout::New();
         this->saveEditorGeneralLayout = SaveEditorGeneralLayout::New();
         this->saveEditorPlayerLayout = SaveEditorPlayerLayout::New();
@@ -24,7 +25,10 @@ namespace editor::ui {
         this->demonSelectorLayout = DemonSelectorLayout::New();
         this->demonMainLayout = DemonMainLayout::New();
         this->demonStatsLayout = DemonStatsLayout::New();
+        this->demonSkillsPotentialLayout = DemonSkillPotentialLayout::New();
+        this->demonSkillsLayout = DemonSkillsLayout::New();
 
+        // Register OnInput
         this->saveSelectorLayout->SetOnInput(std::bind(&SaveSelectorLayout::onInput, this->saveSelectorLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
         this->saveEditorGeneralLayout->SetOnInput(std::bind(&SaveEditorGeneralLayout::onInput, this->saveEditorGeneralLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
         this->saveEditorPlayerLayout->SetOnInput(std::bind(&SaveEditorPlayerLayout::onInput, this->saveEditorPlayerLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
@@ -33,6 +37,8 @@ namespace editor::ui {
         this->demonSelectorLayout->SetOnInput(std::bind(&DemonSelectorLayout::onInput, this->demonSelectorLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
         this->demonMainLayout->SetOnInput(std::bind(&DemonMainLayout::onInput, this->demonMainLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
         this->demonStatsLayout->SetOnInput(std::bind(&DemonStatsLayout::onInput, this->demonStatsLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
+        this->demonSkillsPotentialLayout->SetOnInput(std::bind(&DemonSkillPotentialLayout::onInput, this->demonSkillsPotentialLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
+        this->demonSkillsLayout->SetOnInput(std::bind(&DemonSkillsLayout::onInput, this->demonSkillsLayout, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
     }
 
     void MainApplication::loadPage(Pages page) {
@@ -111,15 +117,15 @@ namespace editor::ui {
             currentDemonPage = page;
             break;
         case DemonPages::Skill_Potential:
-            // this->saveEditorItemLayout->initialiseFromSave();
-            // this->LoadLayout(this->saveEditorItemLayout);
-            // currentPage = page;
-            // break;
+            this->demonSkillsPotentialLayout->initialiseFromSave();
+            this->LoadLayout(this->demonSkillsPotentialLayout);
+            currentDemonPage = page;
+            break;
         case DemonPages::Skills:
-            // this->demonSelectorLayout->initialiseFromSave();
-            // this->LoadLayout(this->demonSelectorLayout);
-            // currentPage = page;
-            // break;     
+            this->demonSkillsLayout->initialiseFromSave();
+            this->LoadLayout(this->demonSkillsLayout);
+            currentDemonPage = page;
+            break;     
         default:
             printf("Page not Implemented\n");
             break;
@@ -131,6 +137,11 @@ namespace editor::ui {
     void MainApplication::loadDemonEditor() {
         isInDemonEditMode = true;
         loadDemonPage(DemonPages::General);
+    }
+
+    void MainApplication::exitDemonEditor() {
+        isInDemonEditMode = false;
+        loadPage(Pages::Demons);
     }
 
     void MainApplication::loadSave() {
@@ -196,29 +207,17 @@ namespace editor::ui {
         // You can use member functions via std::bind() C++ wrapper
         this->SetOnInput([&](u64 Down, u64 Up, u64 Held, pu::ui::Touch Pos)
         {
-            // if(Down & HidNpadButton_X) // If X is pressed, start with our dialog questions!
-            // {
-            //     int opt = this->CreateShowDialog("Question", "Do you like apples?", { "Yes!", "No...", "Cancel" }, true); // (using latest option as cancel option)
-            //     if((opt == -1) || (opt == -2)) // -1 and -2 are similar, but if the user cancels manually -1 is set, other types or cancel should be -2.
-            //     {
-            //         this->CreateShowDialog("Cancel", "Last question was canceled.", { "Ok" }, true); // If we will ignore the option, it doesn't matter if this is true or false
-            //     }
-            //     else
-            //     {
-            //         switch(opt)
-            //         {
-            //             case 0: // "Yes" was selected
-            //                 this->CreateShowDialog("Answer", "Really? I like apples too!", { "Ok" }, true); // Same here ^
-            //                 break;
-            //             case 1: // "No" was selected
-            //                 this->CreateShowDialog("Answer", "Oh, bad news then...", { "OK" }, true); // And here ^
-            //                 break;
-            //         }
-            //     }
-            // }
             if(Down & HidNpadButton_B) // If + is pressed, exit application
             {
-                this->CloseWithFadeOut();
+                if (isInDemonEditMode && currentDemonPage == DemonPages::Skills) {
+                    // do nothing. We ignore because the skills page needs to handle the b button
+                }
+                else if (isInDemonEditMode) {
+                    exitDemonEditor();
+                }
+                else {
+                    this->CloseWithFadeOut();
+                }
             }
             else if(Down & HidNpadButton_Plus) // If + is pressed, exit application
             {

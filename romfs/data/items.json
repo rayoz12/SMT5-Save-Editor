@@ -1,0 +1,1322 @@
+[
+    {
+      "name": "Life Stone",
+      "offset": "33A1",
+      "id": 0,
+      "isUsed": true
+    },
+    {
+      "name": "Chakra Drop",
+      "offset": "33A2",
+      "id": 1,
+      "isUsed": true
+    },
+    {
+      "name": "Chakra Pot",
+      "offset": "33A3",
+      "id": 2,
+      "isUsed": true
+    },
+    {
+      "name": "Bead",
+      "offset": "33A4",
+      "id": 3,
+      "isUsed": true
+    },
+    {
+      "name": "Bead Chain",
+      "offset": "33A5",
+      "id": 4,
+      "isUsed": true
+    },
+    {
+      "name": "Soma",
+      "offset": "33A6",
+      "id": 5,
+      "isUsed": true
+    },
+    {
+      "name": "Revival Bead",
+      "offset": "33A7",
+      "id": 6,
+      "isUsed": true
+    },
+    {
+      "name": "Balm of Life",
+      "offset": "33A8",
+      "id": 7,
+      "isUsed": true
+    },
+    {
+      "name": "Arita Soda",
+      "offset": "33A9",
+      "id": 8,
+      "isUsed": true
+    },
+    {
+      "name": "Amrita Shower",
+      "offset": "33AA",
+      "id": 9,
+      "isUsed": true
+    },
+    {
+      "name": "Medicine",
+      "offset": "33AB",
+      "id": 10,
+      "isUsed": true
+    },
+    {
+      "name": "Ox Bezoar",
+      "offset": "33AC",
+      "id": 11,
+      "isUsed": true
+    },
+    {
+      "name": "Ambrosia",
+      "offset": "33AD",
+      "id": 12,
+      "isUsed": true
+    },
+    {
+      "name": "Muscle Drink",
+      "offset": "33AE",
+      "id": 13,
+      "isUsed": true
+    },
+    {
+      "name": "Unused Item 15",
+      "offset": "33AF",
+      "id": 14,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 16",
+      "offset": "33B0",
+      "id": 15,
+      "isUsed": false
+    },
+    {
+      "name": "Fire Shard",
+      "offset": "33B1",
+      "id": 16,
+      "isUsed": true
+    },
+    {
+      "name": "Ice Shard",
+      "offset": "33B2",
+      "id": 17,
+      "isUsed": true
+    },
+    {
+      "name": "Elec Shard",
+      "offset": "33B3",
+      "id": 18,
+      "isUsed": true
+    },
+    {
+      "name": "Force Shard",
+      "offset": "33B4",
+      "id": 19,
+      "isUsed": true
+    },
+    {
+      "name": "Light Shard",
+      "offset": "33B5",
+      "id": 20,
+      "isUsed": true
+    },
+    {
+      "name": "Dark Shard",
+      "offset": "33B6",
+      "id": 21,
+      "isUsed": true
+    },
+    {
+      "name": "Fire Gem",
+      "offset": "33B7",
+      "id": 22,
+      "isUsed": true
+    },
+    {
+      "name": "Ice Gem",
+      "offset": "33B8",
+      "id": 23,
+      "isUsed": true
+    },
+    {
+      "name": "Elec Gem",
+      "offset": "33B9",
+      "id": 24,
+      "isUsed": true
+    },
+    {
+      "name": "Force Gem",
+      "offset": "33BA",
+      "id": 25,
+      "isUsed": true
+    },
+    {
+      "name": "Light Gem",
+      "offset": "33BB",
+      "id": 26,
+      "isUsed": true
+    },
+    {
+      "name": "Dark Gem",
+      "offset": "33BC",
+      "id": 27,
+      "isUsed": true
+    },
+    {
+      "name": "Unused Item 29",
+      "offset": "33BD",
+      "id": 28,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 30",
+      "offset": "33BE",
+      "id": 29,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 31",
+      "offset": "33BF",
+      "id": 30,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 32",
+      "offset": "33C0",
+      "id": 31,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 33",
+      "offset": "33C1",
+      "id": 32,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 34",
+      "offset": "33C2",
+      "id": 33,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 35",
+      "offset": "33C3",
+      "id": 34,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 36",
+      "offset": "33C4",
+      "id": 35,
+      "isUsed": false
+    },
+    {
+      "name": "Poison Gem",
+      "offset": "33C5",
+      "id": 36,
+      "isUsed": true
+    },
+    {
+      "name": "Sleep Gem",
+      "offset": "33C6",
+      "id": 37,
+      "isUsed": true
+    },
+    {
+      "name": "Confusionn Gem",
+      "offset": "33C7",
+      "id": 38,
+      "isUsed": true
+    },
+    {
+      "name": "Mirage Gem",
+      "offset": "33C8",
+      "id": 39,
+      "isUsed": true
+    },
+    {
+      "name": "Seal Gem",
+      "offset": "33C9",
+      "id": 40,
+      "isUsed": true
+    },
+    {
+      "name": "Charm Gem",
+      "offset": "33CA",
+      "id": 41,
+      "isUsed": true
+    },
+    {
+      "name": "Charge Gem",
+      "offset": "33CB",
+      "id": 42,
+      "isUsed": true
+    },
+    {
+      "name": "Concentrate Gem",
+      "offset": "33CC",
+      "id": 43,
+      "isUsed": true
+    },
+    {
+      "name": "Critical Gem",
+      "offset": "33CD",
+      "id": 44,
+      "isUsed": true
+    },
+    {
+      "name": "Spirit Drain Gem",
+      "offset": "33CE",
+      "id": 45,
+      "isUsed": true
+    },
+    {
+      "name": "Life Drain Gem",
+      "offset": "33CF",
+      "id": 46,
+      "isUsed": true
+    },
+    {
+      "name": "Unused Item 48",
+      "offset": "33D0",
+      "id": 47,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 49",
+      "offset": "33D1",
+      "id": 48,
+      "isUsed": false
+    },
+    {
+      "name": "Purge Charm",
+      "offset": "33D2",
+      "id": 49,
+      "isUsed": true
+    },
+    {
+      "name": "Dispel Charm",
+      "offset": "33D3",
+      "id": 50,
+      "isUsed": true
+    },
+    {
+      "name": "Attack Mirror",
+      "offset": "33D4",
+      "id": 51,
+      "isUsed": true
+    },
+    {
+      "name": "Magic Mirror",
+      "offset": "33D5",
+      "id": 52,
+      "isUsed": true
+    },
+    {
+      "name": "Unused Item 54",
+      "offset": "33D6",
+      "id": 53,
+      "isUsed": false
+    },
+    {
+      "name": "Spyglass",
+      "offset": "33D7",
+      "id": 54,
+      "isUsed": true
+    },
+    {
+      "name": "Unused Item 56",
+      "offset": "33D8",
+      "id": 55,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 57",
+      "offset": "33D9",
+      "id": 56,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 58",
+      "offset": "33DA",
+      "id": 57,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 59",
+      "offset": "33DB",
+      "id": 58,
+      "isUsed": false
+    },
+    {
+      "name": "Whittled Goat",
+      "offset": "33DC",
+      "id": 59,
+      "isUsed": true
+    },
+    {
+      "name": "Smoke Ball",
+      "offset": "33DD",
+      "id": 60,
+      "isUsed": true
+    },
+    {
+      "name": "Phys Dampener",
+      "offset": "33DE",
+      "id": 61,
+      "isUsed": true
+    },
+    {
+      "name": "Fire Dampener",
+      "offset": "33DF",
+      "id": 62,
+      "isUsed": true
+    },
+    {
+      "name": "Ice Dampener",
+      "offset": "33E0",
+      "id": 63,
+      "isUsed": true
+    },
+    {
+      "name": "Elec Dampener",
+      "offset": "33E1",
+      "id": 64,
+      "isUsed": true
+    },
+    {
+      "name": "Force Dampener",
+      "offset": "33E2",
+      "id": 65,
+      "isUsed": true
+    },
+    {
+      "name": "Light Dampener",
+      "offset": "33E3",
+      "id": 66,
+      "isUsed": true
+    },
+    {
+      "name": "Dark Dampener",
+      "offset": "33E4",
+      "id": 67,
+      "isUsed": true
+    },
+    {
+      "name": "Unused Item 69",
+      "offset": "33E5",
+      "id": 68,
+      "isUsed": false
+    },
+    {
+      "name": "Return Pillar",
+      "offset": "33E6",
+      "id": 69,
+      "isUsed": true
+    },
+    {
+      "name": "Repulse Bell",
+      "offset": "33E7",
+      "id": 70,
+      "isUsed": true
+    },
+    {
+      "name": "Unused Item 72",
+      "offset": "33E8",
+      "id": 71,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 73",
+      "offset": "33E9",
+      "id": 72,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 74",
+      "offset": "33EA",
+      "id": 73,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 75",
+      "offset": "33EB",
+      "id": 74,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 76",
+      "offset": "33EC",
+      "id": 75,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 77",
+      "offset": "33ED",
+      "id": 76,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 78",
+      "offset": "33EE",
+      "id": 77,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 79",
+      "offset": "33EF",
+      "id": 78,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 80",
+      "offset": "33F0",
+      "id": 79,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item 81",
+      "offset": "33F1",
+      "id": 80,
+      "isUsed": false
+    },
+    {
+      "name": "Gospel",
+      "offset": "33F2",
+      "id": 81,
+      "isUsed": true
+    },
+    {
+      "name": "Grimoire",
+      "offset": "33F3",
+      "id": 82,
+      "isUsed": true
+    },
+    {
+      "name": "Health Balm",
+      "offset": "33F4",
+      "id": 83,
+      "isUsed": true
+    },
+    {
+      "name": "Stamina Bal",
+      "offset": "33F5",
+      "id": 84,
+      "isUsed": true
+    },
+    {
+      "name": "Strength Balm",
+      "offset": "33F6",
+      "id": 85,
+      "isUsed": true
+    },
+    {
+      "name": "Magic Balm",
+      "offset": "33F7",
+      "id": 86,
+      "isUsed": true
+    },
+    {
+      "name": "Vitality Balm",
+      "offset": "33F8",
+      "id": 87,
+      "isUsed": true
+    },
+    {
+      "name": "Agility Balm",
+      "offset": "33F9",
+      "id": 88,
+      "isUsed": true
+    },
+    {
+      "name": "Luck Balm",
+      "offset": "33FA",
+      "id": 89,
+      "isUsed": true
+    },
+    {
+      "name": "Health Incense",
+      "offset": "33FB",
+      "id": 90,
+      "isUsed": true
+    },
+    {
+      "name": "Stamina Incense",
+      "offset": "33FC",
+      "id": 91,
+      "isUsed": true
+    },
+    {
+      "name": "Strength Incense",
+      "offset": "33FD",
+      "id": 92,
+      "isUsed": true
+    },
+    {
+      "name": "Magic Incense",
+      "offset": "33FE",
+      "id": 93,
+      "isUsed": true
+    },
+    {
+      "name": "Vitality Incense",
+      "offset": "33FF",
+      "id": 94,
+      "isUsed": true
+    },
+    {
+      "name": "Agility Incense",
+      "offset": "3400",
+      "id": 95,
+      "isUsed": true
+    },
+    {
+      "name": "Luck Incense",
+      "offset": "3401",
+      "id": 96,
+      "isUsed": true
+    },
+    {
+      "name": "Battle Sutra",
+      "offset": "3402",
+      "id": 97,
+      "isUsed": true
+    },
+    {
+      "name": "Fire Sutra",
+      "offset": "3403",
+      "id": 98,
+      "isUsed": true
+    },
+    {
+      "name": "Ice Sutra",
+      "offset": "3404",
+      "id": 99,
+      "isUsed": true
+    },
+    {
+      "name": "Elec Sutra",
+      "offset": "3405",
+      "id": 100,
+      "isUsed": true
+    },
+    {
+      "name": "Force Sutra",
+      "offset": "3406",
+      "id": 101,
+      "isUsed": true
+    },
+    {
+      "name": "Light Sutra",
+      "offset": "3407",
+      "id": 102,
+      "isUsed": true
+    },
+    {
+      "name": "Dark Sutra",
+      "offset": "3408",
+      "id": 103,
+      "isUsed": true
+    },
+    {
+      "name": "Destruction Sutra",
+      "offset": "3409",
+      "id": 104,
+      "isUsed": true
+    },
+    {
+      "name": "Healing Sutra",
+      "offset": "340A",
+      "id": 105,
+      "isUsed": true
+    },
+    {
+      "name": "Aiding Sutra",
+      "offset": "340B",
+      "id": 106,
+      "isUsed": true
+    },
+    {
+      "name": "Calamity Sutra",
+      "offset": "340C",
+      "id": 107,
+      "isUsed": true
+    },
+    {
+      "name": "Small Glory Crystal",
+      "offset": "340D",
+      "id": 108,
+      "isUsed": true
+    },
+    {
+      "name": "Large Glory Crystal",
+      "offset": "340E",
+      "id": 109,
+      "isUsed": true
+    },
+    {
+      "name": "Unused Item",
+      "offset": "340F",
+      "id": 110,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3410",
+      "id": 111,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3411",
+      "id": 112,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3412",
+      "id": 113,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3413",
+      "id": 114,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3414",
+      "id": 115,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3415",
+      "id": 116,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3416",
+      "id": 117,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3417",
+      "id": 118,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3418",
+      "id": 119,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3419",
+      "id": 120,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "341A",
+      "id": 121,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "341B",
+      "id": 122,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "341C",
+      "id": 123,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "341D",
+      "id": 124,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "341E",
+      "id": 125,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "341F",
+      "id": 126,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3420",
+      "id": 127,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3421",
+      "id": 128,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3422",
+      "id": 129,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3423",
+      "id": 130,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3424",
+      "id": 131,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3425",
+      "id": 132,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3426",
+      "id": 133,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3427",
+      "id": 134,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3428",
+      "id": 135,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3429",
+      "id": 136,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "342A",
+      "id": 137,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "342B",
+      "id": 138,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "342C",
+      "id": 139,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "342D",
+      "id": 140,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "342E",
+      "id": 141,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "342F",
+      "id": 142,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3430",
+      "id": 143,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3431",
+      "id": 144,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3432",
+      "id": 145,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3433",
+      "id": 146,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3434",
+      "id": 147,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3435",
+      "id": 148,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3436",
+      "id": 149,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3437",
+      "id": 150,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3438",
+      "id": 151,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3439",
+      "id": 152,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "343A",
+      "id": 153,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "343B",
+      "id": 154,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "343C",
+      "id": 155,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "343D",
+      "id": 156,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "343E",
+      "id": 157,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "343F",
+      "id": 158,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3440",
+      "id": 159,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3441",
+      "id": 160,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3442",
+      "id": 161,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3443",
+      "id": 162,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3444",
+      "id": 163,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3445",
+      "id": 164,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3446",
+      "id": 165,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3447",
+      "id": 166,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3448",
+      "id": 167,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3449",
+      "id": 168,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "344A",
+      "id": 169,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "344B",
+      "id": 170,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "344C",
+      "id": 171,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "344D",
+      "id": 172,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "344E",
+      "id": 173,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "344F",
+      "id": 174,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3450",
+      "id": 175,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3451",
+      "id": 176,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3452",
+      "id": 177,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3453",
+      "id": 178,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3454",
+      "id": 179,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3455",
+      "id": 180,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3456",
+      "id": 181,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3457",
+      "id": 182,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3458",
+      "id": 183,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3459",
+      "id": 184,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "345A",
+      "id": 185,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "345B",
+      "id": 186,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "345C",
+      "id": 187,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "345D",
+      "id": 188,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "345E",
+      "id": 189,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "345F",
+      "id": 190,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3460",
+      "id": 191,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3461",
+      "id": 192,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3462",
+      "id": 193,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3463",
+      "id": 194,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3464",
+      "id": 195,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3465",
+      "id": 196,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3466",
+      "id": 197,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3467",
+      "id": 198,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3468",
+      "id": 199,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3469",
+      "id": 200,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "346A",
+      "id": 201,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "346B",
+      "id": 202,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "346C",
+      "id": 203,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "346D",
+      "id": 204,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "346E",
+      "id": 205,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "346F",
+      "id": 206,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3470",
+      "id": 207,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3471",
+      "id": 208,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3472",
+      "id": 209,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3473",
+      "id": 210,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3474",
+      "id": 211,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3475",
+      "id": 212,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3476",
+      "id": 213,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3477",
+      "id": 214,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3478",
+      "id": 215,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "3479",
+      "id": 216,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "347A",
+      "id": 217,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "347B",
+      "id": 218,
+      "isUsed": false
+    },
+    {
+      "name": "Unused Item",
+      "offset": "347C",
+      "id": 219,
+      "isUsed": false
+    }
+]
